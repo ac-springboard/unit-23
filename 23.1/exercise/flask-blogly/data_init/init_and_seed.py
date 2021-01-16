@@ -12,6 +12,13 @@ class AppInit:
     @staticmethod
     def insert_data(db):
         """Add a default user"""
-        fester = User(first_name='Fester', last_name='Bestertester')
-        db.session.add(fester)
+        budda = User(first_name='Siddhārtha', last_name='Gautama')
+        jesus = User(first_name='Jesus', last_name='Christ')
+        krishna = User(first_name='Krishna', last_name='Vasudeva')
+        lahiru = User(first_name='Lahiru', last_name='Gamathige')
+
+        db.session.add(budda)
+        db.session.add(jesus)
+        db.session.add(krishna)
+        db.session.add(lahiru)
         db.session.commit()
