@@ -1,5 +1,6 @@
 """Models for Blogly."""
 
+# from sqlalchemy_utils import URLType
 from flask_sqlalchemy import SQLAlchemy
 
 import os
@@ -29,3 +30,10 @@ class User(db.Model):
 
     last_name = db.Column(db.String(50),
                           nullable=True)
+
+    photo_url = db.Column(db.String,
+                          nullable=True,
+                          default=u'https://i.pinimg.com/originals/4e/76/76/4e76765fda952b5d0243225a1c665874.jpg')
+
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

@@ -12,10 +12,17 @@ class AppInit:
     @staticmethod
     def insert_data(db):
         """Add a default user"""
-        budda = User(first_name='Siddhārtha', last_name='Gautama')
-        jesus = User(first_name='Jesus', last_name='Christ')
-        krishna = User(first_name='Krishna', last_name='Vasudeva')
-        lahiru = User(first_name='Lahiru', last_name='Gamathige')
+        budda = User(first_name='Siddhārtha',
+                     last_name='Gautama',
+                     photo_url=None)
+        jesus = User(first_name='Jesus',
+                     last_name='Christ')
+        krishna = User(first_name='Krishna',
+                       last_name='Vasudeva',
+                       photo_url=None)
+        lahiru = User(first_name='Lahiru',
+                      last_name='Gamathige',
+                      photo_url=u'https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1446050463/wle8mms7cc0leozu27fy.jpg')
 
         db.session.add(budda)
         db.session.add(jesus)
