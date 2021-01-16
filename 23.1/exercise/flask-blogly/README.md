@@ -1,3 +1,5 @@
+## IMPORTANT: this is still a WORK IN PROGRESS. The final version will be published as soon as possible.
+
 # Flask Blogly
 
 <p>A blog app created from scratch!</p>
