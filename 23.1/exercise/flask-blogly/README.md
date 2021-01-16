@@ -4,8 +4,7 @@
 
 <p>A blog app created from scratch!</p>
 
-### A - Setup
-
+-----
 #### 1 - Manually Create the Database and Schemas
 
 The ***Flask Blogly*** app uses the PostgreSQL database.
@@ -14,6 +13,7 @@ The only requirement is that you ***MUST*** inform these names to the applicatio
 
 <p>Please, see the next section for details.</p>
 
+-----
 #### 2 - Set the Environment Variables
 
 You ***MUST*** configure the following environtment variables:
@@ -42,6 +42,7 @@ export BLOGLY_INIT=False
 export BLOGLY_SEED=False
 ```
 
+-----
 #### 3 - Install the Required Packages
 
 ```
@@ -50,6 +51,7 @@ pip install -r requirements.txt
 
 You can check the `requirements.txt` file on this page. 
 
+-----
 #### 4 - Run the Application Using Flask
 
 Remember that this is a ***Flask*** application. You ***MUST*** use the `Flask` command to run it:
