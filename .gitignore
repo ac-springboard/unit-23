@@ -1,0 +1,4 @@
+db/data/
+postgres/
+__pycache__/
+venv/
