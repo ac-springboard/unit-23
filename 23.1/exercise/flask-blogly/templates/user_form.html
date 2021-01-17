@@ -30,6 +30,13 @@
 			<label for="image_url">Photo URL</label>
 			<input name="image_url" value="{{ user.image_url }}"/>
 			</p>
+			<button class="to_deta_bt user_form_bt" type=submit"
+							formaction="/">Cancel
+			</button>
+			<button class="to_save_bt user_form_bt" type=submit"
+							formmethod="{{ method }}"
+							formaction="/users/{{ user.id }}/edit/save">Save
+			</button>
 		</form>
 	</div>
 
