@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block page_content %}
-	<h2>User Details</h2>
+	<h2>User ???</h2>
 	<form>
 		<fieldsed>
 			<legend>{{ user.first_name }} {{ user.last_name }}</legend>
@@ -13,11 +13,11 @@
 				<input name="last_name" value="{{ user.last_name }}"/>
 			</p>
 			<p>
-				<label for="photo_url">Photo URL</label>
-				<input name="photo_url" value="{{ user.photo_url }}"/>
+				<label for="image_url">Photo URL</label>
+				<input name="image_url" value="{{ user.image_url }}"/>
 			</p>
 		</fieldsed>
 	</form>
-		<img src="{{ user.photo_url }}"/>
+		<img src="{{ user.image_url }}"/>
 	<a id="to_list_bt" href="/">Back to Users</a>
 {% endblock %}

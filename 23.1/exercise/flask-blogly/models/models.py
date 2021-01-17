@@ -31,7 +31,7 @@ class User(db.Model):
     last_name = db.Column(db.String(50),
                           nullable=True)
 
-    photo_url = db.Column(db.String,
+    image_url = db.Column(db.String,
                           nullable=True,
                           default=u'https://i.pinimg.com/originals/4e/76/76/4e76765fda952b5d0243225a1c665874.jpg')
 

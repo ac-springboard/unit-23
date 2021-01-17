@@ -1,23 +1,52 @@
-html, body{
-	background-color: lightyellow;
-	}
-form, img{
-	float: left;
+html, body {
+	background-color : lightyellow;
 	}
 
+/*form, img{*/
+/*	float: left;*/
+/*	}*/
+
 img {
-	height: 10em;
-	box-shadow: 3px 3px lightgray;
+	height     : 10em;
+	box-shadow : 3px 3px lightgray;
 	}
 
 legend {
-	font-size: 1.5em;
+	font-size  : 1.5em;
 	text-align : center;
 	width      : 100%;
 	border     : 1px solid gray
 	}
 
-#to_list_bt{
-	clear: both;
-	display: block;
+/*
+ * USER_DETAIL.HTML
+ */
+#user_detailS_form_div {
+	border : 1px solid red;
+	display: inline-block;
+	}
+
+img#user_details_image {
+	float: left;
+	}
+
+img#user_details_form {
+	float: left;
+	}
+
+.user_details_form_bt {
+	display: inline-block;
+	float : left;
+	}
+
+#to_list_bt {
+
+	}
+
+#to_edit_bt {
+
+	}
+
+#to_dele_bt {
+
 	}

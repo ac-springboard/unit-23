@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_content %}
+	<div id="user_details_form_div">
+		<img id="user_details_image" src="{{ user.image_url }}"/>
+		<h1>{{ user.full_name() }}</h1>
+		<form id="user_details_form">
+			<button class="user_details_form_bt" type=submit" id="to_list_bt" formaction="/">Back</button>
+			<button class="user_details_form_bt" type=submit" id="to_edit_bt" formaction="/users/<int:user.id>/edit">Edit
+			</button>
+			<button class="user_details_form_bt" type=submit" id="to_dele_bt" formaction="/users/<int:user.id/delete>">
+				Delete
+			</button>
+		</form>
+	</div>
+{% endblock %}
