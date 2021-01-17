@@ -3,11 +3,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ page_title }}</title>
-		<link href="../static/css/styles.css" rel="stylesheet" />
+		<link href="/static/css/styles.css" rel="stylesheet"/>
 	</head>
 	<body>
-	{% block page_content %}
+		<div id="content_div">
+			<h2>{{ page_title }}</h2>
+			{% block page_content %}
 
-	{% endblock %}
+			{% endblock %}
+		</div>
 	</body>
 </html>

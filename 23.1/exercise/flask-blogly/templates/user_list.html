@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% block page_content %}
-	<h2>Users</h2>
 	<ul>
-	{% for u in users %}
-		<li><a href="/users/{{ u.id }}">{{ u.full_name() }}</a></li>
+	{% for user in users %}
+		<li><a href="/users/{{ user.id }}">{{ user.full_name() }}</a></li>
 	{% endfor %}
 	</ul>
 {% endblock %}
