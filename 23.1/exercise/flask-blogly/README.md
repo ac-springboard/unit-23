@@ -59,3 +59,10 @@ Remember that this is a ***Flask*** application. You ***MUST*** use the `Flask` 
 ```
 Flask run
 ``` 
+
+-----
+#### Additional Notes
+
+1 - The documentation and tests will be completed during this unit (Unit 23)
+
+2 - The styling is far from completed. It's formatted for test purposes only.

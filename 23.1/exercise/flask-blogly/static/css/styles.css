@@ -25,30 +25,38 @@ button:hover{
 	}
 
 #content_div {
-	border : 5px solid magenta;
+	/*border : 5px solid magenta;*/
 	}
 
 #user_form_div {
-	border  : 5px solid coral;
+	/*border  : 5px solid coral;*/
 	display : flex;
 	}
 
 #user_form {
-	border         : 5px solid red;
+	/*border         : 5px solid red;*/
 	display        : inline-block;
 	vertical-align : top;
 	}
 
 .button{
-	font             : bold 11px Arial;
+	/*font             : bold 11px Arial;*/
 	text-decoration  : none;
-	background-color : #eeeeee;
-	color            : #333333;
-	padding          : 2px 6px 2px 6px;
-	border-top       : 1px solid #cccccc;
-	border-right     : 1px solid #333333;
-	border-bottom    : 1px solid #333333;
-	border-left      : 1px solid #cccccc;
+	/*background-color : #eeeeee;*/
+	/*color            : #333333;*/
+	/*padding          : 2px 6px 2px 6px;*/
+	/*border-top       : 1px solid #cccccc;*/
+	/*border-right     : 1px solid #333333;*/
+	/*border-bottom    : 1px solid #333333;*/
+	/*border-left      : 1px solid #cccccc;*/
+	border        : none;
+	padding       : 1em;
+	border-radius : 0.5em;
+		background-color: lightblue;
+	}
+
+.button:hover {
+	box-shadow : 3px 3px gray;
 	}
 
 /*
@@ -79,17 +87,17 @@ button:hover{
 
 img#user_details_image {
 	/*float  : left;*/
-	border : 10px solid yellow;
+	/*border : 10px solid yellow;*/
 	}
 
 #user_details_form {
 	/*float : left;*/
 	/*vertical-align: bottom;*/
-	border : 5px solid lightblue;
+	/*border : 5px solid lightblue;*/
 	}
 
 #form_with_title{
-		border: 5px solid maroon;
+		/*border: 5px solid maroon;*/
 	}
 
 .user_details_form_bt {
@@ -109,18 +117,6 @@ img#user_details_image {
 .to_add_bt {
 
 	}
-
-/*#to_save_bt {*/
-
-/*	}*/
-
-/*#to_deta_bt {*/
-
-/*	}*/
-
-/*#to_dele_bt {*/
-
-/*	}*/
 
 .delete_bt{
 	background-color: red;
