@@ -23,6 +23,7 @@ def create_form_view():
                            page_title='Add User',
                            user=user)
 
+
 @routes.route('/users/new', methods=['POST'])
 def create_view():
     dict_form = dict(request.form)
@@ -55,3 +56,11 @@ def edit_save(user_id):
     user = User.query.get(user_id)
     user.update(dict_form)
     return redirect('/')
+
+
+@routes.route('/users/<int:user_id>/delete', methods=['POST'])
+def details_form_delete(user_id):
+    user = User.query.get(user_id)
+    user.delete()
+    return redirect('/')
+

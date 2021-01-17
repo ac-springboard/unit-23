@@ -24,16 +24,16 @@
 		<img id="user_image" src="{{ user.image_url }}"/>
 		<form id="user_form">
 			<label for="first_name">First Name</label>
-			<input name="first_name" value="{{ user.first_name }}"/>
+			<input name="first_name" value="{{ user.first_name or ''}}"/>
 			<label for="last_name">Last Name</label>
-			<input name="last_name" value="{{ user.last_name }}"/>
+			<input name="last_name" value="{{ user.last_name or ''}}"/>
 			<label for="image_url">Photo URL</label>
-			<input name="image_url" value="{{ user.image_url }}"/>
+			<input name="image_url" value="{{ user.image_url or ''}}"/>
 			</p>
-			<button class="to_deta_bt user_form_bt" type=submit"
+			<button class="cancel_bt user_form_bt" type=submit"
 							formaction="/">Cancel
 			</button>
-			<button class="to_save_bt user_form_bt" type=submit"
+			<button class="save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"
 				{% if crud == 'update' %}
 							formaction="/users/{{ user.id }}/edit/save"

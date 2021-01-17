@@ -14,12 +14,15 @@ label, input {
 	display : block;
 	}
 
-/*legend {*/
-/*	font-size  : 1.5em;*/
-/*	text-align : center;*/
-/*	width      : 100%;*/
-/*	border     : 1px solid gray*/
-/*	}*/
+button {
+	border: none;
+	padding: 1em;
+	border-radius: 0.5em;
+	}
+
+button:hover{
+	box-shadow: 3px 3px gray;
+	}
 
 #content_div {
 	border : 5px solid magenta;
@@ -34,6 +37,18 @@ label, input {
 	border         : 5px solid red;
 	display        : inline-block;
 	vertical-align : top;
+	}
+
+.button{
+	font             : bold 11px Arial;
+	text-decoration  : none;
+	background-color : #eeeeee;
+	color            : #333333;
+	padding          : 2px 6px 2px 6px;
+	border-top       : 1px solid #cccccc;
+	border-right     : 1px solid #333333;
+	border-bottom    : 1px solid #333333;
+	border-left      : 1px solid #cccccc;
 	}
 
 /*
@@ -83,22 +98,38 @@ img#user_details_image {
 	/*float   : left;*/
 	}
 
-#to_list_bt {
+.to_list_bt, .to_edit_bt, .to_add_bt {
+	background-color: lightblue;
+	}
+
+.to_edit_bt {
 
 	}
 
-#to_edit_bt {
+.to_add_bt {
 
 	}
 
-#to_save_bt {
+/*#to_save_bt {*/
 
+/*	}*/
+
+/*#to_deta_bt {*/
+
+/*	}*/
+
+/*#to_dele_bt {*/
+
+/*	}*/
+
+.delete_bt{
+	background-color: red;
 	}
 
-#to_deta_bt {
-
+.save_bt{
+	background-color: green;
 	}
 
-#to_dele_bt {
-
+.cancel_bt{
+	background-color: lightcoral;
 	}

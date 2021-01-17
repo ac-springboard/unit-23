@@ -11,8 +11,9 @@
 				<button class="to_edit_bt user_details_form_bt" type=submit"
 								formaction="/users/{{ user.id }}/edit">Edit
 				</button>
-				<button class="to_dele_bt user_details_form_bt" type=submit"
-								formaction="/users/{{ user.id }}/delete>">
+				<button class="delete_bt user_details_form_bt" type=submit"
+								formmethod="POST"
+								formaction="/users/{{ user.id }}/delete">
 					Delete
 				</button>
 			</form>

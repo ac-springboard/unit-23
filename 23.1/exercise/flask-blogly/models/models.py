@@ -30,9 +30,11 @@ class User(db.Model):
                    index=True)
 
     first_name = db.Column(db.String(50),
+                           default='J',
                            nullable=False)
 
     last_name = db.Column(db.String(50),
+                          default='Doe',
                           nullable=True)
 
     image_url = db.Column(db.String,
@@ -44,14 +46,18 @@ class User(db.Model):
 
     def update_columns(self, dct):
         self.id = dct.get('id', None)
-        self.first_name = dct.get('first_name', '')
-        self.last_name = dct.get('last_name', '')
-        self.image_url = dct.get('image_url', '')
+        self.first_name = dct.get('first_name') or None
+        self.last_name = dct.get('last_name') or None
+        self.image_url = dct.get('image_url') or None
 
     def update(self, dct):
         self.update_columns(dct)
         db.session.commit()
         return self
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     @staticmethod
     def add(dct):
@@ -60,4 +66,3 @@ class User(db.Model):
         db.session.commit()
         db.session.refresh(user)
         return user.id
-
