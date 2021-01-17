@@ -44,11 +44,20 @@ class User(db.Model):
 
     def update_columns(self, dct):
         self.id = dct.get('id', None)
-        self.first_name = dct.get('first_name')
-        self.last_name = dct.get('last_name')
-        self.image_url = dct.get('image_url', None)
+        self.first_name = dct.get('first_name', '')
+        self.last_name = dct.get('last_name', '')
+        self.image_url = dct.get('image_url', '')
 
     def update(self, dct):
         self.update_columns(dct)
         db.session.commit()
         return self
+
+    @staticmethod
+    def add(dct):
+        user = User(dct)
+        db.session.add(user)
+        db.session.commit()
+        db.session.refresh(user)
+        return user.id
+

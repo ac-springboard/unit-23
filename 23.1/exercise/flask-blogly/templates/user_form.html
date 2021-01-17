@@ -35,7 +35,12 @@
 			</button>
 			<button class="to_save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"
-							formaction="/users/{{ user.id }}/edit/save">Save
+				{% if crud == 'update' %}
+							formaction="/users/{{ user.id }}/edit/save"
+				{% elif crud == 'create' %}
+							formaction="/users/new"
+				{% endif %}
+			>Save
 			</button>
 		</form>
 	</div>
