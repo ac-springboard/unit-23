@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block page_content %}
-	<ul>
+
 	{% for user in users %}
-		<li><a href="/users/{{ user.id }}">{{ user.full_name() }}</a></li>
+		<div class="user_list">
+			✅ <a href="/users/{{ user.id }}">{{ user.full_name() }}</a>
+		</div>
 	{% endfor %}
-	</ul>
-	<a href="/users/new" id="to_add_bt" class="button">Add User</a>
+	<a href="/users/new" class="to_add_bt">Add User</a>
 {% endblock %}

@@ -1,17 +1,22 @@
-from models.models import User
+from models.post_model import Post
+from models.user_model import User
 
 
 class AppInit:
     @staticmethod
     def drop_create(db):
-        """(Re|Create) all tables"""
+        """
+        (Re|Creates) all tables.
+        """
         db.drop_all()
         db.create_all()
         db.session.commit()
 
     @staticmethod
     def insert_data(db):
-        """Add a default user"""
+        """
+        Add test users
+        """
         budda = User({'first_name': 'Siddhārtha',
                       'last_name': 'Gautama',
                       'image_url': None})
@@ -28,4 +33,10 @@ class AppInit:
         db.session.add(jesus)
         db.session.add(krishna)
         db.session.add(lahiru)
+        db.session.commit()
+
+        post1 = Post({'title': 'Test Post 1', 'user_id': 1})
+        post2 = Post({'title': 'Test Post 2', 'user_id': 1})
+
+        db.session.add_all([post1, post2])
         db.session.commit()

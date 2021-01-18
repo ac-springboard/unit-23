@@ -1,0 +1,43 @@
+button {
+	border        : none;
+	padding       : 1em;
+	border-radius : 0.5em;
+	}
+
+button:hover {
+	box-shadow : 3px 3px gray;
+	}
+
+.to_list_bt, .to_edit_bt, .to_add_bt {
+	background-color : lightblue;
+	}
+
+.to_edit_bt {
+
+	}
+
+.to_add_bt {
+	text-decoration : none;
+	border          : none;
+	padding         : 1em;
+	border-radius   : 0.5em;
+	font            : 400 13.3333px Arial;
+	color           : black !important;
+	display         : inline-block;
+	}
+
+.to_add_bt:hover {
+	box-shadow : 3px 3px gray;
+	}
+
+.delete_bt {
+	background-color : red;
+	}
+
+.save_bt {
+	background-color : green;
+	}
+
+.cancel_bt {
+	background-color : lightcoral;
+	}

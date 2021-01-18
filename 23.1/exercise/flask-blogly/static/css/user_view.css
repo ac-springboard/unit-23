@@ -1,0 +1,18 @@
+#user_details_form_div {
+	display : flex;
+	}
+
+#user_details_form_div h1 {
+	vertical-align : top;
+	}
+
+img#user_details_image {
+	}
+
+#user_details_form {
+	}
+
+.user_details_form_bt {
+	display        : inline-block;
+	vertical-align : bottom;
+	}

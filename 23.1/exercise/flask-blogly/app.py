@@ -2,8 +2,8 @@
 
 import os
 from flask import Flask
+from models.models import setup_db, db
 from data_init.init_and_seed import AppInit
-from models.models import db, setup_db
 from routes.routes import routes
 
 app = Flask(__name__)
@@ -13,8 +13,14 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.register_blueprint(routes)
 setup_db(app)
 
+"""
+Initializes (drop and create) the tables if the BLOGLY_INIT environment variable is set to True.
+"""
 if os.environ['BLOGLY_INIT'] == 'True':
     AppInit.drop_create(db)
 
+"""
+Adds test values to the tables if the BLOGLY_SEED variable is set to True.
+"""
 if os.environ['BLOGLY_SEED'] == 'True':
     AppInit.insert_data(db)

@@ -66,3 +66,13 @@ Flask run
 1 - The documentation and tests will be completed during this unit (Unit 23)
 
 2 - The styling is far from completed. It's formatted for test purposes only.
+
+3 - I've used some techniques ***beyond the scope of the exercises***, such as:
+
+- Splitting the models in different files.
+- Moving the routes to a file separate from the app (I had to use the Blueprint class for that).
+- Using multiples schemas in the same or separated database.
+- Parametrizing the database and schema names.
+- Others.
+
+
