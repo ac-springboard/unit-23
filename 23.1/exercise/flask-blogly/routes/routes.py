@@ -41,7 +41,7 @@ def create_view():
     Treats the POST request to add the a new user.
     """
     dict_form = dict(request.form)
-    User.add(dict_form)
+    User.add(User, dict_form)
     return redirect('/')
 
 

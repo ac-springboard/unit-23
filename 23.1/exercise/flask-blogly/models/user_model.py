@@ -1,9 +1,11 @@
 import os
 
-from models.models import db
+from models.models import Models
+
+db = Models.db
 
 
-class User(db.Model):
+class User(Models, db.Model):
     """
     - Initializes the users table on postgres.
     - Represents the an user from the users table.
@@ -54,28 +56,3 @@ class User(db.Model):
         self.last_name = dct.get('last_name') or None
         self.image_url = dct.get('image_url') or None
 
-    def update(self, dct):
-        """
-        Updates the data of this user from a dictionary and commits the changes.
-        """
-        self.update_columns(dct)
-        db.session.commit()
-        return self
-
-    def delete(self):
-        """
-        Deletes this user.
-        """
-        db.session.delete(self)
-        db.session.commit()
-
-    @staticmethod
-    def add(dct):
-        """
-        Adds a new user to the database, from the a dictionary.
-        """
-        user = User(dct)
-        db.session.add(user)
-        db.session.commit()
-        db.session.refresh(user)
-        return user.id
