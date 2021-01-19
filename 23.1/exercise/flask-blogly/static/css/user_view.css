@@ -2,6 +2,10 @@
 	display : flex;
 	}
 
+#user_details_form_div a{
+	/*display : block;*/
+	}
+
 #user_details_form_div h1 {
 	vertical-align : top;
 	}
@@ -15,4 +19,11 @@ img#user_details_image {
 .user_details_form_bt {
 	display        : inline-block;
 	vertical-align : bottom;
+	}
+
+.post_list {
+	color           : cyan !important;
+	text-decoration : none;
+	margin-bottom   : 1em;
+	display: block;
 	}

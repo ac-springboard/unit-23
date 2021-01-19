@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block page_content %}
 
-	{% for user in users %}
-		<div class="user_list">
-			✅ <a href="/users/{{ user.id }}">{{ user.full_name() }}</a>
-		</div>
-	{% endfor %}
+	<div class="user_list">
+		{% for user in users %}
+			<p class="list_item">✅ <a href="/users/{{ user.id }}">{{ user.full_name() }}</a></p>
+		{% endfor %}
+	</div>
 	<a href="/users/new" class="to_add_bt">Add User</a>
 {% endblock %}

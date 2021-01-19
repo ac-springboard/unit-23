@@ -35,8 +35,18 @@ class AppInit:
         db.session.add(lahiru)
         db.session.commit()
 
-        post1 = Post({'title': 'Test Post 1', 'user_id': 1})
-        post2 = Post({'title': 'Test Post 2', 'user_id': 1})
+        post_2_1 = Post({'title': 'הדיבר העשירי',
+                         'content': 'עכשיו אני אומר לך לאהוב אחד את השני, כמו שאהבתי ',
+                         'user_id': 2})
+        post_3_1 = Post({'title': 'विश्वासों',
+                         'content': 'एक आदमी अपनी मान्यताओं से बनता है। जैसा वह मानता है। तो वह बन जाता है।',
+                         'user_id': 3})
+        post_4_1 = Post({'title': 'මැක්සිමා ප්‍ර is ාව',
+                         'content': 'මම යමක් කියන්නම් නමුත් ඔබට එය තේරෙන්නේ නැත.',
+                         'user_id': 4})
 
-        db.session.add_all([post1, post2])
+        post_4_2 = Post({'title': 'For My Students',
+                         'content': 'I wish my hair was growing as much as your knowledge.',
+                         'user_id': 4})
+        db.session.add_all([post_2_1, post_3_1, post_4_1, post_4_2])
         db.session.commit()

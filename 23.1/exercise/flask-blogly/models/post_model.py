@@ -49,29 +49,3 @@ class Post(Models, db.Model):
         self.title = dct.get('title') or None
         self.user_id = dct.get('user_id') or None
         self.created_at = dct.get('created_at') or None
-
-    # def update(self, dct):
-    #     """
-    #     Updates the data of this post from a dictionary and commits the changes.
-    #     """
-    #     self.update_columns(dct)
-    #     db.session.commit()
-    #     return self
-
-    # def delete(self):
-    #     """
-    #     Deletes this post.
-    #     """
-    #     db.session.delete(self)
-    #     db.session.commit()
-
-    # @staticmethod
-    # def add(dct):
-    #     """
-    #     Adds a new post to the database, from the a dictionary.
-    #     """
-    #     post = Post(dct)
-    #     db.session.add(post)
-    #     db.session.commit()
-    #     db.session.refresh(post)
-    #     return post.id

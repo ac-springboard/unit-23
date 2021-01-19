@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block page_content %}
+	<div id="post_form_div">
+		<form id="post_form">
+			<label for="post_title">Title</label>
+			<input name="post_title" value="{{ post.title or '' }}"/>
+			<label for="post_content">Content</label>
+			<textarea
+				name="post_content">{{ post.content or '' }}</textarea>
+			<div class="form_bt_div">
+				<button class="cancel_bt post_form_bt" type=submit"
+								formaction="/users/{{ post.user_id }}">Cancel
+				</button>
+				<input type="hidden" name="user_id"
+							 value="{{ post.user_id }}"/>
+				<button class="save_bt post_form_bt" type=submit"
+								formmethod="{{ method }}"
+					{% if crud == 'update' %}
+								formaction="/posts/{{ post.id }}/edit/save"
+					{% elif crud == 'create' %}
+								formaction="/posts/new"
+					{% endif %}
+				>Save
+				</button>
+			</div>
+		</form>
+	</div>
+
+{% endblock %}
+

@@ -2,10 +2,12 @@ button {
 	border        : none;
 	padding       : 1em;
 	border-radius : 0.5em;
+	font-size : 1em;
 	}
 
 button:hover {
-	box-shadow : 3px 3px gray;
+	box-shadow : 3px 3px 5px black;
+	color: black !important;
 	}
 
 .to_list_bt, .to_edit_bt, .to_add_bt {
@@ -17,17 +19,18 @@ button:hover {
 	}
 
 .to_add_bt {
-	text-decoration : none;
+	text-decoration : none !important;
 	border          : none;
-	padding         : 1em;
+	padding         : 1.0em;
 	border-radius   : 0.5em;
-	font            : 400 13.3333px Arial;
+	font-size : 1em;
 	color           : black !important;
 	display         : inline-block;
 	}
 
 .to_add_bt:hover {
-	box-shadow : 3px 3px gray;
+	box-shadow : 3px 3px 5px black;
+	color: black !important;
 	}
 
 .delete_bt {

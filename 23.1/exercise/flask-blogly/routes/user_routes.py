@@ -92,3 +92,19 @@ def details_form_delete(user_id):
     user = User.query.get(user_id)
     user.delete()
     return redirect('/')
+
+
+@user_routes.route('/posts/new', methods=['GET'])
+def create_post_form_view():
+    """
+    Renders the Post form. Sends some special variables to the front-end:
+
+    - method: the method to be sent by the form on click on the 'Save' button.
+    - crud: the operation to configure the form.
+    """
+    post = Post({})
+    return render_template('user_form.html',
+                           method='POST',
+                           crud='create',
+                           page_title='Add Post',
+                           post=post)

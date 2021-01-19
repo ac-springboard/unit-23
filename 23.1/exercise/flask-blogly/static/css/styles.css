@@ -1,12 +1,25 @@
-@import url('buttons.css');
-@import url('user_edit.css');
-@import url('user_form.css');
-@import url('user_list.css');
-@import url('user_view.css');
+@import url("buttons.css");
+@import url("user_edit.css");
+@import url("user_form.css");
+@import url("user_list.css");
+@import url("user_view.css");
 
 html, body {
 	background-color : darkslategray;
 	color            : white;
+	}
+
+a, button, div, form, h1, h2, h3, h4, h5, h6, label, p{
+	font-family : "Courier", sans-serif !important;
+	}
+
+a {
+	text-decoration : none !important;
+	color           : cyan !important;
+	}
+
+a:hover {
+	color : coral !important;
 	}
 
 img {
@@ -26,3 +39,7 @@ label, input {
 #user_details_image {
 	}
 
+.list_item {
+	font-size : 1.5em;
+!important;
+	}
