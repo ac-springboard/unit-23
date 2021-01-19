@@ -10,7 +10,7 @@ from routes.post_routes import post_routes
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql:///{os.environ['BLOGLY_DATABASE_NAME']}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_ECHO'] = True
+app.config['SQLALCHEMY_ECHO'] = False
 app.register_blueprint(user_routes)
 app.register_blueprint(post_routes)
 Models.setup_db(app)

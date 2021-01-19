@@ -1,7 +1,5 @@
 # from app import app, db
-from urllib import request
-
-from flask import render_template, Blueprint, session, redirect
+from flask import render_template, Blueprint, request, redirect
 
 from models.post_model import Post
 
@@ -29,11 +27,61 @@ def create_form_view(user_id):
                            post=post)
 
 
-@post_routes.route('/posts/new', methods=['POST'])
-def create_view():
+@post_routes.route('/users/<int:user_id>/posts/new', methods=['POST'])
+def post_add(user_id):
     """
     Treats the POST request to add the a new post.
     """
     dict_form = dict(request.form)
+    dict_form['user_id'] = user_id
     Post.add(Post, dict_form)
     return redirect(f'/users/{dict_form["user_id"]}')
+
+
+@post_routes.route('/posts/<int:post_id>')
+def post_details_form_view(post_id):
+    """
+    Renders the form that shows the post details.
+    """
+    post = Post.query.get(post_id)
+    return render_template('post_view.html',
+                           page_title='Post Details',
+                           post=post)
+
+
+@post_routes.route('/posts/<int:post_id>/delete', methods=['POST'])
+def post_details_form_delete(post_id):
+    """
+    Treats the POST request to delete a post.
+    """
+    post = Post.query.get(post_id)
+    post.delete()
+    return redirect(f'/users/{ post.user_id}')
+
+
+@post_routes.route('/posts/<int:post_id>/edit')
+def edit_view(post_id):
+    """Renders Edit Post form. Sends some special variables to the front-end:
+
+    - method: the method to be sent by the form on click on the 'Save' button.
+    - crud: the operation to configure the form.
+    """
+    post = Post.query.get(post_id)
+    return render_template('post_form.html',
+                           method='POST',
+                           crud='update',
+                           page_title='Edit Post',
+                           post=post)
+
+
+@post_routes.route('/posts/<int:post_id>/edit', methods=['POST'])
+def edit_save(post_id):
+    """
+    Treats the POST request to update a post.
+    """
+    dict_form = dict(request.form)
+    dict_form['id'] = post_id
+    post = Post.query.get(post_id)
+    post.update(dict_form)
+    return redirect(f'/users/{post.user_id}')
+

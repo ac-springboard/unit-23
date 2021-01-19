@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block page_content %}
+	<div id="post_details_form_div">
+		<div id="form_with_title">
+			<form id="post_details_form">
+				<h1>{{ post.title }}</h1>
+				<div class="post_content">{{  post.content }}</div>
+				<button class="to_list_bt post_details_form_bt" type=submit"
+								formaction="/users/{{ post.user_id }}">Posts
+				</button>
+				<button class="to_edit_bt post_details_form_bt" type=submit"
+								formaction="/posts/{{ post.id }}/edit">Edit
+				</button>
+				<button class="delete_bt post_details_form_bt" type=submit"
+								formmethod="POST"
+								formaction="/posts/{{ post.id }}/delete">
+					Delete
+				</button>
+			</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

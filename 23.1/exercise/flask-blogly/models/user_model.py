@@ -1,5 +1,7 @@
 import os
 
+from flask import jsonify
+
 from models.models import Models
 
 db = Models.db
@@ -18,9 +20,9 @@ class User(Models, db.Model):
     """
     __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
 
-    def __init__(self, user_dict):
-        self.user_dict = user_dict
-        self.update_columns(user_dict)
+    def __init__(self, obj_dict):
+        self.obj_dict = obj_dict
+        self.update_columns(obj_dict)
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -55,4 +57,3 @@ class User(Models, db.Model):
         self.first_name = dct.get('first_name') or None
         self.last_name = dct.get('last_name') or None
         self.image_url = dct.get('image_url') or None
-

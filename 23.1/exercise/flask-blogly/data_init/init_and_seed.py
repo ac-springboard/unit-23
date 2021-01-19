@@ -29,10 +29,7 @@ class AppInit:
                        'last_name': 'Gamathige',
                        'image_url': 'https://res-4.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1446050463/wle8mms7cc0leozu27fy.jpg'})
 
-        db.session.add(budda)
-        db.session.add(jesus)
-        db.session.add(krishna)
-        db.session.add(lahiru)
+        db.session.add_all([budda, jesus, krishna, lahiru])
         db.session.commit()
 
         post_2_1 = Post({'title': 'הדיבר העשירי',

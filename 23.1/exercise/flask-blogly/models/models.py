@@ -1,4 +1,5 @@
 """Models for Blogly."""
+from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 from typing import Generic, Type, TypeVar, Dict
 
@@ -41,3 +42,4 @@ class Models:
         self.update_columns(dct)
         Models.db.session.commit()
         return self
+

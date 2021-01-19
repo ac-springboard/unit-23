@@ -1,5 +1,8 @@
 import os
 from datetime import datetime
+
+from flask import jsonify
+
 from models.models import Models
 from models.user_model import User
 
@@ -19,9 +22,9 @@ class Post(Models, db.Model):
     """
     __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
 
-    def __init__(self, post_dict):
-        self.post_dict = post_dict
-        self.update_columns(post_dict)
+    def __init__(self, obj_dict):
+        self.obj_dict = obj_dict
+        self.update_columns(obj_dict)
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -32,7 +35,7 @@ class Post(Models, db.Model):
     title = db.Column(db.String(50),
                       default='New Post',
                       nullable=False)
-    content = db.Column(db.String,
+    content = db.Column(db.Text,
                         nullable=True)
 
     created_at = db.Column(db.DateTime,
@@ -47,5 +50,6 @@ class Post(Models, db.Model):
         """
         self.id = dct.get('id', None)
         self.title = dct.get('title') or None
-        self.user_id = dct.get('user_id') or None
-        self.created_at = dct.get('created_at') or None
+        self.content = dct.get('content') or None
+        self.user_id = dct.get('user_id') or self.user_id
+        self.created_at = dct.get('created_at') or self.created_at
