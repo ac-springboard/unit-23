@@ -53,7 +53,8 @@ def details_form_view(user_id):
     user = User.query.get(user_id)
     return render_template('user_view.html',
                            page_title='User Details',
-                           user=user)
+                           user=user,
+                           posts=user.posts)
 
 
 @user_routes.route('/users/<int:user_id>/edit')

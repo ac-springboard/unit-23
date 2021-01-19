@@ -17,6 +17,10 @@
 					Delete
 				</button>
 			</form>
+			<h1>Posts</h1>
+			{% for post in posts %}
+				<p>{{ post.title }}</p>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
