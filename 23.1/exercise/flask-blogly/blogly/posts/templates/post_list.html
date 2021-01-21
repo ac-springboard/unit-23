@@ -3,7 +3,8 @@
 
 	{% for post in posts %}
 		<div class="post_list">
-			✅ <a href="/posts/{{ post.id }}">{{ post.title }} by {{ post.user.full_name() }}</a>
+			✅ <a href="/posts/{{ post.id }}">{{ post.title }}
+			by {{ post.user.full_name() }}</a>
 		</div>
 	{% endfor %}
 	<a href="/blogly/posts/new" class="to_add_bt">Add Post</a>

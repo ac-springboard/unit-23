@@ -6,7 +6,8 @@ main_routes = Blueprint('main_routes', __name__)
 
 
 @main_routes.route('/')
-@main_routes.route('/list')
+@main_routes.route('/blogly')
+@main_routes.route('/blogly/list')
 def main_home():
     """
     Render the User List template for both '/' and '/list' paths.

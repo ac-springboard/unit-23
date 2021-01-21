@@ -4,13 +4,13 @@
 		<img id="user_image" src="{{ user.image_url }}"/>
 		<form id="user_form">
 			<label for="first_name">First Name</label>
-			<input name="first_name" value="{{ user.first_name or ''}}"/>
+			<input name="first_name" value="{{ user.first_name or '' }}"/>
 			<label for="last_name">Last Name</label>
-			<input name="last_name" value="{{ user.last_name or ''}}"/>
+			<input name="last_name" value="{{ user.last_name or '' }}"/>
 			<label for="image_url">Photo URL</label>
-			<input name="image_url" value="{{ user.image_url or ''}}"/>
+			<input name="image_url" value="{{ user.image_url or '' }}"/>
 			<button class="cancel_bt user_form_bt" type=submit"
-							formaction="/">Cancel
+							formaction="/blogly/users/{{ user.id }}">Cancel
 			</button>
 			<button class="save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"

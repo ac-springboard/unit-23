@@ -1,6 +1,7 @@
 from flask import Flask
-from blogly.config import Config
 from flask_sqlalchemy import SQLAlchemy
+
+from blogly.config import Config
 
 db = SQLAlchemy()
 
@@ -45,7 +46,6 @@ class Init:
 
     @staticmethod
     def insert_data():
-
         from blogly.users.user_model import User
 
         budda = User({'first_name': 'Siddhārtha',

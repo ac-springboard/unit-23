@@ -20,10 +20,13 @@
 			<h1>Posts</h1>
 			<p id="post_list">
 				{% for post in posts %}
-					<p class="list_item">	✅ <a href="/posts/{{ post.id }}">{{ post.title }}</a></p>
+					<p class="list_item"> ✅ <a
+						href="/blogly/posts/{{ post.id }}">{{ post.title }}</a>
+					</p>
 				{% endfor %}
-			<a href="/users/{{ user.id }}/posts/new" class="to_add_bt">Add Post</a>
-			</div>
+			<a href="/blogly/users/{{ user.id }}/posts/new"
+				 class="to_add_bt">Add Post</a>
 		</div>
+	</div>
 	</div>
 {% endblock %}

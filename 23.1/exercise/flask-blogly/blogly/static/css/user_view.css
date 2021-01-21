@@ -2,7 +2,7 @@
 	display : flex;
 	}
 
-#user_details_form_div a{
+#user_details_form_div a {
 	/*display : block;*/
 	}
 
@@ -23,7 +23,7 @@ img#user_details_image {
 
 .post_list {
 	color           : cyan !important;
-	text-decoration : none;
+	display         : block;
 	margin-bottom   : 1em;
-	display: block;
+	text-decoration : none;
 	}

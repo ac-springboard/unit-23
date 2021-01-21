@@ -41,4 +41,3 @@ class Models:
         self.update_columns(dct)
         db.session.commit()
         return self
-
