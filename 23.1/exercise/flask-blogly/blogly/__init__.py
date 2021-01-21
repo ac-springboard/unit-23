@@ -24,19 +24,25 @@ class Init:
 
     @staticmethod
     def register_blueprints(app):
+        # ROUTES
         from blogly.main.main_routes import main_routes
         from blogly.users.user_routes import user_routes
         from blogly.posts.post_routes import post_routes
+        from blogly.tags.tag_routes import tag_routes
 
         app.register_blueprint(main_routes)
         app.register_blueprint(user_routes)
         app.register_blueprint(post_routes)
+        app.register_blueprint(tag_routes)
 
+        # MODELS
         from blogly.users.user_model import user_model
         from blogly.posts.post_model import post_model
+        from blogly.tags.tag_model import tag_model
 
         app.register_blueprint(user_model)
         app.register_blueprint(post_model)
+        app.register_blueprint(tag_model)
 
     @staticmethod
     def create_tables():
@@ -80,4 +86,13 @@ class Init:
                          'user_id': 4})
 
         db.session.add_all([post_2_1, post_3_1, post_4_1, post_4_2])
+        db.session.commit()
+
+        from blogly.tags.tag_model import Tag
+
+        tag1 = Tag({'name': 'Religion'})
+        tag2 = Tag({'name': 'Art'})
+        tag3 = Tag({'name': 'Kitties'})
+
+        db.session.add_all([tag1, tag2, tag3])
         db.session.commit()

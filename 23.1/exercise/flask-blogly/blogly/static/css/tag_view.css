@@ -1,0 +1,22 @@
+#tag_details_form_div {
+	display : flex;
+	}
+
+#tag_details_form_div a {
+	/*display : block;*/
+	}
+
+#tag_details_form_div h1 {
+	vertical-align : top;
+	}
+
+img#tag_details_image {
+	}
+
+#tag_details_form {
+	}
+
+.tag_details_form_bt {
+	display        : inline-block;
+	vertical-align : bottom;
+	}

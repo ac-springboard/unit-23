@@ -1,6 +1,8 @@
 """Models for Blogly."""
 from typing import Type, TypeVar, Dict
 
+from sqlalchemy import Integer
+
 from blogly import db
 
 T = TypeVar('T', bound='Models')
@@ -8,13 +10,13 @@ T = TypeVar('T', bound='Models')
 
 class Models:
 
-    # @staticmethod
-    # def setup_db(app):
-    #     """
-    #     Sets and initializes the database for this app.
-    #     """
-    #     Models.db.app = app;
-    #     Models.db.init_app(app)
+    @staticmethod
+    def all(cls: Type[T]):
+        return cls.query.all()
+
+    @staticmethod
+    def get(cls: Type[T], type_id: Integer):
+        return cls.query.get(type_id)
 
     @staticmethod
     def add(cls: Type[T], dict_arg: Dict):

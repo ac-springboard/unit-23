@@ -1,0 +1,8 @@
+#tag_form_div {
+	display : flex;
+	}
+
+#tag_form {
+	display        : inline-block;
+	vertical-align : top;
+	}

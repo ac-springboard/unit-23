@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+	<div class="tag_list">
+		{% for tag in tags %}
+			<p class="list_item">✅ <a
+				href="/blogly/tags/{{ tag.id }}">{{ tag.name }}</a>
+			</p>
+		{% endfor %}
+	</div>
+	<a href="/blogly/tags/new" class="to_add_bt">Add Tag</a>
+{% endblock %}
