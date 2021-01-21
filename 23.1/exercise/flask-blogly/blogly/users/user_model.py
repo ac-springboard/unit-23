@@ -1,10 +1,11 @@
 import os
 
-from flask import jsonify
+from flask import Blueprint
 
-from models.models import Models
+from blogly import db
+from blogly.models import Models
 
-db = Models.db
+user_model = Blueprint('user_model', __name__, template_folder='templates')
 
 
 class User(Models, db.Model):
