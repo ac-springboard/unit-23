@@ -1,12 +1,13 @@
 import os
 from datetime import datetime
 
-from flask import jsonify
+from flask import Blueprint
 
-from models.models import Models
-from models.user_model import User
+from blogly import db
+from blogly.models import Models
+from blogly.users.user_model import User
 
-db = Models.db
+post_model = Blueprint('post_model', __name__, template_folder='templates')
 
 
 class Post(Models, db.Model):

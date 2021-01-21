@@ -1,12 +1,10 @@
 # from app import app, db
 from flask import render_template, Blueprint, request, redirect
 
-from models.post_model import Post
+from blogly.posts.post_model import Post
+from blogly.users.user_model import User
 
-# from models.user_model import User
-from models.user_model import User
-
-post_routes = Blueprint('post_routes', '__name__')
+post_routes = Blueprint('post_routes', __name__)
 
 
 @post_routes.route('/users/<int:user_id>/posts/new', methods=['GET'])
@@ -85,3 +83,18 @@ def edit_save(post_id):
     post.update(dict_form)
     return redirect(f'/users/{post.user_id}')
 
+
+@post_routes.route('/posts/new', methods=['GET'])
+def new():
+    """
+    Renders the Post form. Sends some special variables to the front-end:
+
+    - method: the method to be sent by the form on click on the 'Save' button.
+    - crud: the operation to configure the form.
+    """
+    post = Post({})
+    return render_template('user_form.html',
+                           method='POST',
+                           crud='create',
+                           page_title='Add Post',
+                           post=post)
