@@ -24,6 +24,7 @@ class Tag(Models, db.Model):
     def __init__(self, obj_dict):
         self.obj_dict = obj_dict
         self.update_columns(obj_dict)
+        # Tag.posts = db.relationship('Post', secondary='tag_post', backref='tags')
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -32,15 +33,14 @@ class Tag(Models, db.Model):
 
     name = db.Column(db.String(50),
                      default='Post',
+                     unique=True,
                      nullable=False)
 
-    # posts = db.relationship('Post')
-
-    def full_name(self):
-        """
-        Returns the full name of this tag
-        """
-        return f"{self.first_name} {self.last_name}"
+    # tag_post = db.relationship('TagPost')
+    # rel_tag_post = db.relationship('TagPost')
+    rel_posts = db.relationship('Post',
+                                secondary='flask_blogly_test.tag_post',
+                                backref='tags')
 
     def update_columns(self, dct):
         """

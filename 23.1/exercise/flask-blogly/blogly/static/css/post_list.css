@@ -1,0 +1,12 @@
+.user_list {
+	color           : white !important;
+	display         : block;
+	margin-bottom   : 1em;
+	text-decoration : none;
+	}
+
+/*!*.user_list a {*!*/
+/*	display: block;*/
+/*	}*/
+
+

@@ -43,3 +43,6 @@ class Models:
         self.update_columns(dct)
         db.session.commit()
         return self
+
+    def __repr__(self):
+        return f"***** obj_dict -> {dict(self.__dict__)}"

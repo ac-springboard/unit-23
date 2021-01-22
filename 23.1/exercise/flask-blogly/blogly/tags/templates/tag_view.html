@@ -4,27 +4,27 @@
 		<div id="form_with_title">
 			<form id="tag_details_form">
 				<h1>{{ tag.name }}</h1>
-				<button class="to_list_bt tag_details_form_bt" type=submit"
+				<button class="to_list_bt tag_details_form_bt" type="submit"
 								formaction="/blogly/tags">Tags
 				</button>
-				<button class="to_edit_bt tag_details_form_bt" type=submit"
+				<button class="to_edit_bt tag_details_form_bt" type="submit"
 								formaction="/blogly/tags/{{ tag.id }}/edit">Edit
 				</button>
-				<button class="delete_bt tag_details_form_bt" type=submit"
+				<button class="delete_bt tag_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="/blogly/tags/{{ tag.id }}/delete">
 					Delete
 				</button>
 			</form>
 			<h1>Posts</h1>
-			{#<p id="post_list">#}
-			{#	{% for post in posts %}#}
-			{#		<p class="list_item"> ✅ <a#}
-			{#			href="/blogly/posts/{{ post.id }}">{{ post.title }}</a>#}
-			{#		</p>#}
-			{#	{% endfor %}#}
-			{#<a href="/blogly/tags/{{ tag.id }}/posts/new"#}
-			{#	 class="to_add_bt">Add Post</a>#}
+			<p id="post_list">
+				{% for post in tag.tag_post.all() %}
+					<p class="list_item"> ✅ <a
+						href="/blogly/posts/{{ post.post_id }}">{{ post.post_id }}</a>
+					</p>
+				{% endfor %}
+			<a href="/blogly/tags/{{ tag.id }}/posts/new"
+				 class="to_add_bt">Add Post</a>
 		</div>
 	</div>
 {% endblock %}

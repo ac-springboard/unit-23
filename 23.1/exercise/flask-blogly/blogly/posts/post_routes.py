@@ -47,7 +47,8 @@ def post_details_form_view(post_id):
     ---------------
         User Details -> <Post title on the list>
     """
-    post = Post.query.get(post_id)
+    post = Post.get(Post, post_id)
+    # print(post.__repr__) # This is cool
     return render_template('post_view.html',
                            page_title='Post Details',
                            post=post)
@@ -58,7 +59,7 @@ def post_details_form_delete(post_id):
     """
     Treats the POST request to delete a post.
     """
-    post = Post.query.get(post_id)
+    post = Post.get(Post, post_id)
     post.delete()
     return redirect(f'/blogly/users/{post.user_id}')
 
@@ -70,7 +71,7 @@ def edit_view(post_id):
     - method: the method to be sent by the form on click on the 'Save' button.
     - crud: the operation to configure the form.
     """
-    post = Post.query.get(post_id)
+    post = Post.get(Post, post_id)
     return render_template('post_form.html',
                            method='POST',
                            crud='update',
@@ -85,7 +86,7 @@ def edit_save(post_id):
     """
     dict_form = dict(request.form)
     dict_form['id'] = post_id
-    post = Post.query.get(post_id)
+    post = Post.get(Post, post_id)
     post.update(dict_form)
     return redirect(f'/blogly/users/{post.user_id}')
 

@@ -3,6 +3,14 @@
 @import url("user_form.css");
 @import url("user_list.css");
 @import url("user_view.css");
+@import url("post_edit.css");
+@import url("post_form.css");
+@import url("post_list.css");
+@import url("post_view.css");
+@import url("tag_edit.css");
+@import url("tag_form.css");
+@import url("tag_list.css");
+@import url("tag_view.css");
 
 html, body {
 	background-color : darkslategray;

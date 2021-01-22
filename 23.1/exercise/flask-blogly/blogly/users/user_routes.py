@@ -52,7 +52,7 @@ def details(user_id):
         User Add Form -> Save or Cancel
         User Edit Form -> Save or Cancel
     """
-    user = User.query.get(user_id)
+    user = User.get(User, user_id)
     return render_template('user_view.html',
                            page_title='User Details',
                            user=user,
@@ -70,7 +70,7 @@ def edit_form(user_id):
     ---------------
         User View -> Edit
     """
-    user = User.query.get(user_id)
+    user = User.get(User, user_id)
     return render_template('user_form.html',
                            method='POST',
                            crud='update',
@@ -85,7 +85,7 @@ def save(user_id):
     """
     dict_form = dict(request.form)
     dict_form['id'] = user_id
-    user = User.query.get(user_id)
+    user = User.get(User, user_id)
     user.update(dict_form)
     return redirect(f'/blogly/users/{user_id}')
 
@@ -95,6 +95,6 @@ def delete(user_id):
     """
     Treats the POST request to delete a user.
     """
-    user = User.query.get(user_id)
+    user = User.get(User, user_id)
     user.delete()
     return redirect('/blogly/list')

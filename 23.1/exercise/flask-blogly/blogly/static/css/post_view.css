@@ -1,0 +1,34 @@
+#post_details_form_div {
+	display : flex;
+	}
+
+#post_details_form_div a {
+	/*display : block;*/
+	}
+
+#post_details_form_div h1 {
+	vertical-align : top;
+	}
+
+img#post_details_image {
+	}
+
+#post_details_form {
+	}
+
+.post_details_form_bt {
+	display        : inline-block;
+	vertical-align : bottom;
+	}
+
+.post_tag_item{
+	display: inline-block;
+	background: black;
+	}
+
+/*.post_list {*/
+/*	color           : cyan !important;*/
+/*	display         : block;*/
+/*	margin-bottom   : 1em;*/
+/*	text-decoration : none;*/
+/*	}*/

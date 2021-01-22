@@ -5,13 +5,13 @@
 		<div id="form_with_title">
 			<form id="user_details_form">
 				<h1>{{ user.full_name() }}</h1>
-				<button class="to_list_bt user_details_form_bt" type=submit"
+				<button class="to_list_bt user_details_form_bt" type="submit"
 								formaction="/blogly">Users
 				</button>
-				<button class="to_edit_bt user_details_form_bt" type=submit"
+				<button class="to_edit_bt user_details_form_bt" type="submit"
 								formaction="/blogly/users/{{ user.id }}/edit">Edit
 				</button>
-				<button class="delete_bt user_details_form_bt" type=submit"
+				<button class="delete_bt user_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="/blogly/users/{{ user.id }}/delete">
 					Delete

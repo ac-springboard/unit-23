@@ -16,8 +16,17 @@
 								formaction="/blogly/posts/{{ post.id }}/delete">
 					Delete
 				</button>
+				<h1>Tags</h1>
+				{% for tag in post.rel_tags %}
+					<div>
+						<input class="post_tag_item" type="checkbox"
+									 id="tag_{{ tag.id }}"
+									 name="tag_{{ tag.id }}"/>
+						<label for="tag_{{ tag.id }}"
+									 class="post_tag_item">{{ tag.name }}</label>
+					</div>
+				{% endfor %}
 			</form>
 		</div>
-	</div>
 	</div>
 {% endblock %}

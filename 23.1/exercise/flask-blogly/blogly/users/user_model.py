@@ -22,7 +22,7 @@ class User(Models, db.Model):
     __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
 
     def __init__(self, obj_dict):
-        self.obj_dict = obj_dict
+        # self.obj_dict = obj_dict
         self.update_columns(obj_dict)
 
     id = db.Column(db.Integer,

@@ -59,7 +59,7 @@ def details(tag_id):
         Tag Add Form -> Save or Cancel
         Tag Edit Form -> Save or Cancel
     """
-    tag = Tag.query.get(tag_id)
+    tag = Tag.get(Tag, tag_id)
     return render_template('tag_view.html',
                            page_title='Tag Details',
                            tag=tag,
@@ -77,7 +77,7 @@ def edit_form(tag_id):
     ---------------
         Tag View -> Edit
     """
-    tag = Tag.query.get(tag_id)
+    tag = Tag.get(Tag, tag_id)
     return render_template('tag_form.html',
                            method='POST',
                            crud='update',
@@ -92,7 +92,7 @@ def save(tag_id):
     """
     dict_form = dict(request.form)
     dict_form['id'] = tag_id
-    tag = Tag.query.get(tag_id)
+    tag = Tag.get(Tag, tag_id)
     tag.update(dict_form)
     return redirect(f'/blogly/tags/{tag_id}')
 
@@ -102,6 +102,6 @@ def delete(tag_id):
     """
     Treats the POST request to delete a tag.
     """
-    tag = Tag.query.get(tag_id)
+    tag = Tag.get(Tag, tag_id)
     tag.delete()
     return redirect('/blogly/list')
