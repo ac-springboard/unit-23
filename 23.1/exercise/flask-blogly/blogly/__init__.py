@@ -103,6 +103,8 @@ class Init:
         from blogly.tags.tag_post_model import TagPost
 
         tag_post_1_1 = TagPost({'post_id': 1, 'tag_id': 1})
+        tag_post_1_2 = TagPost({'post_id': 1, 'tag_id': 2})
+        tag_post_1_3 = TagPost({'post_id': 1, 'tag_id': 3})
 
-        db.session.add(tag_post_1_1)
+        db.session.add_all([tag_post_1_1, tag_post_1_2, tag_post_1_3])
         db.session.commit()

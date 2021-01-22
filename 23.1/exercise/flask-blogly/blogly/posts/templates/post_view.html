@@ -5,6 +5,14 @@
 			<form id="post_details_form">
 				<h1>{{ post.title }}</h1>
 				<div class="post_content">{{ post.content }}</div>
+
+				<div class="tag_h_list">
+					<span class="tags_label">Tags:</span>
+					{% for tag in post.rel_tags %}
+						<a class="tag_h_list_item"
+							 href="/blogly/tags/{{ tag.id }}">{{ tag.name }}</a>
+					{% endfor %}
+				</div>
 				<button class="to_list_bt post_details_form_bt" type=submit"
 								formaction="/blogly/users/{{ post.user_id }}">Posts
 				</button>
@@ -16,16 +24,9 @@
 								formaction="/blogly/posts/{{ post.id }}/delete">
 					Delete
 				</button>
-				<h1>Tags</h1>
-				{% for tag in post.rel_tags %}
-					<div>
-						<input class="post_tag_item" type="checkbox"
-									 id="tag_{{ tag.id }}"
-									 name="tag_{{ tag.id }}"/>
-						<label for="tag_{{ tag.id }}"
-									 class="post_tag_item">{{ tag.name }}</label>
-					</div>
-				{% endfor %}
+				<a href="/blogly/users/{{ post.user_id }}/posts/new"
+					 class="to_add_bt">New Post</a>
+
 			</form>
 		</div>
 	</div>

@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block page_content %}
 	<div id="tag_form_div">
-		<img id="tag_image" src="{{ tag.image_url }}"/>
 		<form id="tag_form">
 			<label for="name">Tag Name</label>
 			<input name="name" value="{{ tag.name or '' }}"/>
 			<button class="cancel_bt tag_form_bt" type=submit"
-							formaction="/blogly/tags/{{ tag.id }}">Cancel
+							formaction="/blogly/tags">Cancel
 			</button>
 			<button class="save_bt tag_form_bt" type=submit"
 							formmethod="{{ method }}"

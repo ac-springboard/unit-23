@@ -1,28 +1,43 @@
 {% extends "base.html" %}
 {% block page_content %}
 	<div id="post_form_div">
-		<form id="post_form">
+		<div id="post_form">
 			<label for=title">Title</label>
-			<input name="title" value="{{ post.title or '' }}"/>
-			<label for="content">Content</label>
-			<textarea
-				name="content">{{ post.content or '' }}</textarea>
-			<div class="form_bt_div">
-				<button class="cancel_bt post_form_bt" type=submit"
-								formaction="/blogly/users/{{ post.user_id }}">Cancel
-				</button>
-				<button class="save_bt post_form_bt" type=submit"
-								formmethod="{{ method }}"
-					{% if crud == 'update' %}
-								formaction="/blogly/posts/{{ post.id }}/edit"
-					{% elif crud == 'create' %}
-								formaction="/blogly/users/{{ post.user_id }}/posts/new"
-					{% endif %}
-				>Save
-				</button>
-			</div>
-		</form>
+			<form>
+				<label for="post_title">Title</label>
+				<input id="post_title"name="title" value="{{ post.title or '' }}"/>
+				<label for="post_content">Content</label>
+				<textarea id="post_content"
+					name="content">{{ post.content or '' }}
+			</textarea>
+				<h2>Tags</h2>
+				<div class="tag_h_list_check">
+					{% for tag in tags %}
+						<div class="tag_h_list_check_item">
+							<input class="tag_h_list_item_check_input" type="checkbox"
+										 id="tag_{{ tag.id }}"
+										 name="tag_keys" value="{{ tag.id }}"/>
+							<label for="tag_{{ tag.id }}"
+										 class="tag_h_list_item_check_label">{{ tag.name }}</label>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="form_bt_div">
+					<button class="cancel_bt post_form_bt" type="submit"
+									formaction="/blogly/users/{{ post.user_id }}">Cancel
+					</button>
+					<button class="save_bt post_form_bt" type="submit"
+									formmethod="{{ method }}"
+						{% if crud == 'update' %}
+									formaction="/blogly/posts/{{ post.id }}/edit"
+						{% elif crud == 'create' %}
+									formaction="/blogly/users/{{ post.user_id }}/posts/new"
+						{% endif %}
+					>Save
+					</button>
+				</div>
+			</form>
+		</div>
 	</div>
 
 {% endblock %}
-

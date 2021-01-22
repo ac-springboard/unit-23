@@ -5,4 +5,50 @@
 	text-decoration : none;
 	}
 
+.tag_h_list {
+	margin : 0.5em 0 0.5em 0;
+	}
 
+.tag_h_list_item {
+	display       : inline-block;
+	color         : white;
+	font-size     : 0.8em;
+	border-radius : 0.3em;
+	background    : mediumblue;
+	padding       : 0.3em;
+	margin        : 0.1em;
+	}
+
+.tag_label {
+	font-size   : 0.8em;
+	font-weight : bold;
+	margin      : 0.5em;
+
+	}
+
+.tag_h_list_check {
+	display : flex;
+	}
+
+.tag_h_list_check_item {
+	display       : flex;
+	background    : mediumblue;
+	border-radius : 0.3em;
+	padding       : 0.3em;
+	margin        : 0.5em 0.2em 0.5em 0;
+	font-size     : 1em;
+	line-height: 1.4em;
+	}
+
+.tag_h_list_item_check_input {
+	display : inline-block;
+	/*vertical-align: middle;*/
+	}
+
+.tag_h_list_item_check_label {
+	display   : inline-block;
+	/*vertical-align: middle;*/
+	color     : white;
+	font-size : 0.8em;
+
+	}

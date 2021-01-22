@@ -18,13 +18,13 @@
 			</form>
 			<h1>Posts</h1>
 			<p id="post_list">
-				{% for post in tag.tag_post.all() %}
+				{% for post in tag.rel_posts %}
 					<p class="list_item"> ✅ <a
-						href="/blogly/posts/{{ post.post_id }}">{{ post.post_id }}</a>
+						href="/blogly/posts/{{ post.id }}">{{ post.title }}</a>
 					</p>
 				{% endfor %}
-			<a href="/blogly/tags/{{ tag.id }}/posts/new"
-				 class="to_add_bt">Add Post</a>
+			<a href="/blogly/tags/new"
+				 class="to_add_bt">New Tag</a>
 		</div>
 	</div>
 {% endblock %}

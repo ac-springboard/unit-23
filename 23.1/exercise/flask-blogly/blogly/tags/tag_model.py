@@ -1,6 +1,7 @@
 import os
 
 from flask import Blueprint
+from sqlalchemy.orm import backref
 
 from blogly import db
 from blogly.models import Models
@@ -24,7 +25,6 @@ class Tag(Models, db.Model):
     def __init__(self, obj_dict):
         self.obj_dict = obj_dict
         self.update_columns(obj_dict)
-        # Tag.posts = db.relationship('Post', secondary='tag_post', backref='tags')
 
     id = db.Column(db.Integer,
                    primary_key=True,
@@ -38,9 +38,15 @@ class Tag(Models, db.Model):
 
     # tag_post = db.relationship('TagPost')
     # rel_tag_post = db.relationship('TagPost')
+    # rel_tag_post = db.relationship('TagPost',
+    #                                back_populates='tag',
+    #                                passive_deletes=True)
+    # rel_posts = db.relationship('Post',
+    #                             secondary='flask_blogly_test.tag_post')
     rel_posts = db.relationship('Post',
                                 secondary='flask_blogly_test.tag_post',
-                                backref='tags')
+                                back_populates='rel_tags',
+                                lazy='joined')
 
     def update_columns(self, dct):
         """

@@ -4,8 +4,6 @@ from flask import Blueprint
 
 from blogly import db
 from blogly.models import Models
-from blogly.posts.post_model import Post
-from blogly.tags.tag_model import Tag
 
 tag_post_model = Blueprint('tag_post_model', __name__)
 
@@ -31,13 +29,13 @@ class TagPost(Models, db.Model):
 
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True)
 
-    tag_id = db.Column(db.Integer, db.ForeignKey(Tag.id))
-    post_id = db.Column(db.Integer, db.ForeignKey(Post.id))
+    post_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.posts.id'))
+    tag_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.tags.id', ondelete='CASCADE'), nullable=False)
 
     # RELATIONSHIPS
 
-    # tag = db.relationship('Tag')
-    # post = db.relationship('Post')
+    # tag = db.relationship('Tag', back_populates='rel_tag_post')
+    # # post = db.relationship('Post')
 
     def update_columns(self, dct):
         """

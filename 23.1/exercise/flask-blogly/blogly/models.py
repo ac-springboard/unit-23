@@ -6,6 +6,7 @@ from sqlalchemy import Integer
 from blogly import db
 
 T = TypeVar('T', bound='Models')
+L = TypeVar('[T]', bound='Models')
 
 
 class Models:
@@ -28,6 +29,16 @@ class Models:
         db.session.commit()
         db.session.refresh(t)
         return t.id
+
+    @staticmethod
+    def add_all(cls: Type[L]):
+        """
+        Adds a list of objects to the database.
+        """
+        db.session.add_all(cls)
+        db.session.commit()
+        # db.session.refresh(cls)
+        print(f"=====>>>>> LIST: {cls}")
 
     def delete(self):
         """

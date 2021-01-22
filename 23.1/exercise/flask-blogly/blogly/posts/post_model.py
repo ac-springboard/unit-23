@@ -55,7 +55,9 @@ class Post(Models, db.Model):
     # rel_tag_post = db.relationship('TagPost')
     rel_tags = db.relationship('Tag',
                                secondary='flask_blogly_test.tag_post',
-                               backref='posts')
+                               back_populates='rel_posts',
+                               cascade='all',
+                               lazy='dynamic')
 
     def update_columns(self, dct):
         """
