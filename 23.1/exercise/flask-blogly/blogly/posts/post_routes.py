@@ -6,8 +6,9 @@ from blogly.tags.tag_model import Tag
 from blogly.tags.tag_post_model import TagPost
 from blogly.users.user_model import User
 
-post_routes = Blueprint('post_routes', __name__, url_prefix='/blogly')
-
+post_routes = Blueprint('post_routes', __name__,
+                        url_prefix='/blogly',
+                        static_folder="../posts")
 
 #
 # ADD POST: FORM (GET) AND PROCESSING (POST)
@@ -23,7 +24,7 @@ def create_form_view(user_id):
     """
     post = Post({})
     post.user_id = user_id
-    user = User.query.get(user_id)
+    user = User.get(user_id)
     tags = Tag.all(Tag)
     return render_template('post_form.html',
                            method='POST',
@@ -43,7 +44,6 @@ def post_add(user_id):
     post_id = Post.add(Post, dict_form)
 
     tag_keys = request.form.getlist("tag_keys")
-    # print(f"TAG_KEYS =====>>>>> {tag_keys}")
     tag_post_list = [TagPost({'post_id': post_id, 'tag_id': tk}) for tk in tag_keys]
     TagPost.add_all(tag_post_list)
     return redirect(f'/blogly/users/{dict_form["user_id"]}')

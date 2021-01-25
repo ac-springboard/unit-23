@@ -10,7 +10,9 @@ class Init:
 
     @staticmethod
     def create_app(config_class=Config):
-        app = Flask(__name__, template_folder='templates')
+        app = Flask(__name__,
+                    template_folder="templates",
+                    static_folder="main/static")
         app.config.from_object(config_class)
 
         db.init_app(app)
@@ -37,11 +39,13 @@ class Init:
         app.register_blueprint(tag_post_model)
 
         # ROUTES
+        from blogly.main.root_routes import root_routes
         from blogly.main.main_routes import main_routes
         from blogly.users.user_routes import user_routes
         from blogly.posts.post_routes import post_routes
         from blogly.tags.tag_routes import tag_routes
 
+        app.register_blueprint(root_routes)
         app.register_blueprint(main_routes)
         app.register_blueprint(user_routes)
         app.register_blueprint(post_routes)

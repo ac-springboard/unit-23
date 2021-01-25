@@ -2,12 +2,12 @@
 {% block page_content %}
 	<div id="tag_form_div">
 		<form id="tag_form">
-			<label for="name">Tag Name</label>
-			<input name="name" value="{{ tag.name or '' }}"/>
-			<button class="cancel_bt tag_form_bt" type=submit"
+			<label for="tag_name">Tag Name</label>
+			<input name="name" id="tag_name" value="{{ tag.name or '' }}"/>
+			<button class="cancel_bt tag_form_bt" type="submit"
 							formaction="/blogly/tags">Cancel
 			</button>
-			<button class="save_bt tag_form_bt" type=submit"
+			<button class="save_bt tag_form_bt" type="submit"
 							formmethod="{{ method }}"
 				{% if crud == 'update' %}
 							formaction="/blogly/tags/{{ tag.id }}/edit/save"

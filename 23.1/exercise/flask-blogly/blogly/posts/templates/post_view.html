@@ -13,13 +13,13 @@
 							 href="/blogly/tags/{{ tag.id }}">{{ tag.name }}</a>
 					{% endfor %}
 				</div>
-				<button class="to_list_bt post_details_form_bt" type=submit"
+				<button class="to_list_bt post_details_form_bt" type="submit"
 								formaction="/blogly/users/{{ post.user_id }}">Posts
 				</button>
-				<button class="to_edit_bt post_details_form_bt" type=submit"
+				<button class="to_edit_bt post_details_form_bt" type="submit"
 								formaction="/blogly/posts/{{ post.id }}/edit">Edit
 				</button>
-				<button class="delete_bt post_details_form_bt" type=submit"
+				<button class="delete_bt post_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="/blogly/posts/{{ post.id }}/delete">
 					Delete

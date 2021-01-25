@@ -31,7 +31,7 @@ class Models:
         return t.id
 
     @staticmethod
-    def add_all(cls: Type[L]):
+    def add_all(cls: object):
         """
         Adds a list of objects to the database.
         """
@@ -57,3 +57,6 @@ class Models:
 
     def __repr__(self):
         return f"***** obj_dict -> {dict(self.__dict__)}"
+
+    def update_columns(self, dct):
+        pass

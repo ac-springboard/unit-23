@@ -3,7 +3,10 @@ from flask import render_template, Blueprint, redirect, request
 
 from blogly.users.user_model import User
 
-user_routes = Blueprint('user_routes', __name__, url_prefix='/blogly')
+user_routes = Blueprint('user_routes', __name__,
+                        url_prefix='/blogly',
+                        template_folder="templates",
+                        static_folder="../users")
 
 
 @user_routes.route('/users/new', methods=['GET'])

@@ -1,0 +1,53 @@
+@import url("buttons.css");
+/*@import url("/blogly/users/static/css/user_edit.css");*/
+/*@import url("/blogly/users/static/css/user_form.css");*/
+@import url("/blogly/users/static/css/user_list.css");
+/*@import url("/blogly/users/static/css/user_view.css");*/
+/*@import url("/blogly/posts/static/css/post_edit.css");*/
+/*@import url("/blogly/posts/static/css/post_form.css");*/
+/*@import url("/blogly/posts/static/css/post_list.css");*/
+/*@import url("/blogly/posts/static/css/post_view.css");*/
+/*@import url("/blogly/tags/static/css/tag_edit.css");*/
+/*@import url("/blogly/tags/static/css/tag_form.css");*/
+/*@import url("/blogly/tags/static/css/tag_list.css");*/
+/*@import url("/blogly/tags/static/css/tag_view.css");*/
+
+html, body {
+	background-color : darkslategray;
+	color            : white;
+	}
+
+a, button, div, form, h1, h2, h3, h4, h5, h6, label, p {
+	font-family : "Courier", sans-serif !important;
+	}
+
+a {
+	color           : cyan !important;
+	text-decoration : none !important;
+	}
+
+a:hover {
+	color : coral !important;
+	}
+
+img {
+	box-shadow     : 5px 5px #00000040;
+	height         : 10em;
+	margin         : 1em;
+	vertical-align : bottom;
+	}
+
+label, input {
+	display : block;
+	}
+
+#content_div {
+	}
+
+#user_details_image {
+	}
+
+.list_item {
+	font-size : 1.5em;
+!important;
+	}

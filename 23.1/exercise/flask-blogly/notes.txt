@@ -1,0 +1,66 @@
+flask-blogly
+├── blogly
+│   ├── config.py
+│   ├── __init__.py
+│   ├── main
+│   │   ├── __init__.py
+│   │   ├── main_routes.py
+│   │   └── templates
+│   │       └── base.html
+│   ├── models.py
+│   ├── posts
+│   │   ├── __init__.py
+│   │   ├── post_model.py
+│   │   ├── post_routes.py
+│   │   ├── static
+│   │   │   └── css
+│   │   │       ├── post_edit.css
+│   │   │       ├── post_form.css
+│   │   │       ├── post_list.css
+│   │   │       └── post_view.css
+│   │   └── templates
+│   │       ├── post_form.html
+│   │       ├── post_list.html
+│   │       └── post_view.html
+│   ├── README.md
+│   ├── static
+│   │   ├── css
+│   │   │   ├── buttons.css
+│   │   │   ├── markdown.css
+│   │   │   └── styles.css
+│   │   └── images
+│   │       └── favicon.png
+│   ├── tags
+│   │   ├── __init__.py
+│   │   ├── static
+│   │   │   └── css
+│   │   │       ├── tag_edit.css
+│   │   │       ├── tag_form.css
+│   │   │       ├── tag_list.css
+│   │   │       └── tag_view.css
+│   │   ├── tag_model.py
+│   │   ├── tag_post_model.py
+│   │   ├── tag_routes.py
+│   │   └── templates
+│   │       ├── tag_form.html
+│   │       ├── tag_list.html
+│   │       └── tag_view.html
+│   └── users
+│       ├── __init__.py
+│       ├── static
+│       │   └── css
+│       │       ├── user_edit.css
+│       │       ├── user_form.css
+│       │       ├── user_list.css
+│       │       └── user_view.css
+│       ├── templates
+│       │   ├── user_form.html
+│       │   ├── user_list.html
+│       │   └── user_view.html
+│       ├── user_model.py
+│       └── user_routes.py
+├── notes.txt
+├── requirements.txt
+└── run.py
+
+18 directories, 45 files

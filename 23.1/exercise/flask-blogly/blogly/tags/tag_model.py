@@ -1,12 +1,11 @@
 import os
 
 from flask import Blueprint
-from sqlalchemy.orm import backref
 
 from blogly import db
 from blogly.models import Models
 
-tag_model = Blueprint('tag_model', __name__, template_folder='templates')
+tag_model = Blueprint('tag_model', __name__, template_folder='templates', static_folder='static')
 
 
 class Tag(Models, db.Model):
@@ -36,13 +35,6 @@ class Tag(Models, db.Model):
                      unique=True,
                      nullable=False)
 
-    # tag_post = db.relationship('TagPost')
-    # rel_tag_post = db.relationship('TagPost')
-    # rel_tag_post = db.relationship('TagPost',
-    #                                back_populates='tag',
-    #                                passive_deletes=True)
-    # rel_posts = db.relationship('Post',
-    #                             secondary='flask_blogly_test.tag_post')
     rel_posts = db.relationship('Post',
                                 secondary='flask_blogly_test.tag_post',
                                 back_populates='rel_tags',

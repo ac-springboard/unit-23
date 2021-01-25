@@ -4,14 +4,14 @@
 		<meta charset="UTF-8">
 		<title>{{ page_title }}</title>
 		<link rel="icon" type="image/png"
-					href="/static/images/favicon.png"/>
-		<link href="/static/css/styles.css" rel="stylesheet"/>
+					href="{{ g.URL_ROOT }}/static/images/favicon.png"/>
+		<link href="{{ g.URL_ROOT }}/static/css/styles.css"
+					rel="stylesheet"/>
 	</head>
 	<body>
 		<div id="content_div">
 			<h2>{{ page_title }}</h2>
 			{% block page_content %}
-
 			{% endblock %}
 		</div>
 	</body>

@@ -2,19 +2,20 @@
 {% block page_content %}
 	<div id="post_form_div">
 		<div id="post_form">
-			<label for=title">Title</label>
 			<form>
 				<label for="post_title">Title</label>
-				<input id="post_title"name="title" value="{{ post.title or '' }}"/>
+				<input id="post_title" name="title"
+							 value="{{ post.title or '' }}"/>
 				<label for="post_content">Content</label>
 				<textarea id="post_content"
-					name="content">{{ post.content or '' }}
+									name="content">{{ post.content or '' }}
 			</textarea>
 				<h2>Tags</h2>
 				<div class="tag_h_list_check">
 					{% for tag in tags %}
 						<div class="tag_h_list_check_item">
-							<input class="tag_h_list_item_check_input" type="checkbox"
+							<input class="tag_h_list_item_check_input"
+										 type="checkbox"
 										 id="tag_{{ tag.id }}"
 										 name="tag_keys" value="{{ tag.id }}"/>
 							<label for="tag_{{ tag.id }}"

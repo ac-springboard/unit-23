@@ -2,7 +2,9 @@ from flask import render_template, Blueprint, redirect, request
 
 from blogly.tags.tag_model import Tag
 
-tag_routes = Blueprint('tag_routes', __name__, url_prefix='/blogly')
+tag_routes = Blueprint('tag_routes', __name__,
+                       url_prefix='/blogly',
+                       static_folder="../tags")
 
 
 @tag_routes.route('/tags')

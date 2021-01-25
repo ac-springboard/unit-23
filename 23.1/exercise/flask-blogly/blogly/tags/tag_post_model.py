@@ -32,11 +32,6 @@ class TagPost(Models, db.Model):
     post_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.posts.id'))
     tag_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.tags.id', ondelete='CASCADE'), nullable=False)
 
-    # RELATIONSHIPS
-
-    # tag = db.relationship('Tag', back_populates='rel_tag_post')
-    # # post = db.relationship('Post')
-
     def update_columns(self, dct):
         """
         Updates the data of this tag from a dictionary.
