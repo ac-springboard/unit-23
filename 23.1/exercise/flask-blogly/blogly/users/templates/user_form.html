@@ -10,7 +10,12 @@
 			<label for="image_url">Photo URL</label>
 			<input name="image_url" value="{{ user.image_url or '' }}"/>
 			<button class="cancel_bt user_form_bt" type=submit"
-							formaction="/blogly/users/{{ user.id }}">Cancel
+				{% if user_id %}
+							formaction="/blogly/users/{{ user.id }}"
+				{% else %}
+							formaction="/blogly"
+				{% endif %}
+			>Cancel
 			</button>
 			<button class="save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"

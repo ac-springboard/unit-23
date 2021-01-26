@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block page_content %}
-
+	<link href="{{ g.URL_ROOT }}/blogly/tags/static/css/tag_list.css" rel="stylesheet" />
 	<div class="tag_list">
 		{% for tag in tags %}
 			<p class="list_item">✅ <a

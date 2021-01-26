@@ -10,6 +10,7 @@ post_routes = Blueprint('post_routes', __name__,
                         url_prefix='/blogly',
                         static_folder="../posts")
 
+
 #
 # ADD POST: FORM (GET) AND PROCESSING (POST)
 #
@@ -24,7 +25,7 @@ def create_form_view(user_id):
     """
     post = Post({})
     post.user_id = user_id
-    user = User.get(user_id)
+    user = User.get(User, user_id)
     tags = Tag.all(Tag)
     return render_template('post_form.html',
                            method='POST',

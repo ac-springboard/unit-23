@@ -4,7 +4,7 @@
 	<div class="user_list">
 		{% for user in users %}
 			<p class="list_item">✅ <a
-				href="/blogly/users/{{ user.id }}">{{ user.full_name() }}</a>
+				href="{{ g.USERS.PATH }}/{{ user.id }}">{{ user.full_name() }}</a>
 			</p>
 		{% endfor %}
 	</div>

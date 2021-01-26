@@ -16,6 +16,7 @@ def main_home():
     """
     Render the User List template for both '/' and '/list' paths.
     """
+
     users = User.all(User)
     return render_template('user_list.html',
                            page_title='Users',
