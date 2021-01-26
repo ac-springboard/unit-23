@@ -8,11 +8,11 @@
 								formaction="/blogly/tags">Tags
 				</button>
 				<button class="to_edit_bt tag_details_form_bt" type="submit"
-								formaction="/blogly/tags/{{ tag.id }}/edit">Edit
+								formaction="{{ g.TAGS.PATH }}/{{ tag.id }}/edit">Edit
 				</button>
 				<button class="delete_bt tag_details_form_bt" type="submit"
 								formmethod="POST"
-								formaction="/blogly/tags/{{ tag.id }}/delete">
+								formaction="{{ g.TAGS.PATH }}/{{ tag.id }}/delete">
 					Delete
 				</button>
 			</form>
@@ -20,10 +20,10 @@
 			<p id="post_list">
 				{% for post in tag.rel_posts %}
 					<p class="list_item"> ✅ <a
-						href="/blogly/posts/{{ post.id }}">{{ post.title }}</a>
+						href="{{ g.POSTS.PATH }}/{{ post.id }}">{{ post.title }}</a>
 					</p>
 				{% endfor %}
-			<a href="/blogly/tags/new"
+			<a href="{{ g.TAGS.PATH }}/new"
 				 class="to_add_bt">New Tag</a>
 		</div>
 	</div>

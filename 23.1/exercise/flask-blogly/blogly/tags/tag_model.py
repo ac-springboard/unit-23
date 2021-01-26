@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint
+from flask import Blueprint, g
 
 from blogly import db
 from blogly.models import Models
@@ -31,7 +31,7 @@ class Tag(Models, db.Model):
                    index=True)
 
     name = db.Column(db.String(50),
-                     default='Post',
+                     default='New Tag',
                      unique=True,
                      nullable=False)
 

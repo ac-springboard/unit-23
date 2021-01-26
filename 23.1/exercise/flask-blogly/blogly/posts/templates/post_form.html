@@ -25,14 +25,14 @@
 				</div>
 				<div class="form_bt_div">
 					<button class="cancel_bt post_form_bt" type="submit"
-									formaction="/blogly/users/{{ post.user_id }}">Cancel
+									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">Cancel
 					</button>
 					<button class="save_bt post_form_bt" type="submit"
 									formmethod="{{ method }}"
 						{% if crud == 'update' %}
-									formaction="/blogly/posts/{{ post.id }}/edit"
+									formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit"
 						{% elif crud == 'create' %}
-									formaction="/blogly/users/{{ post.user_id }}/posts/new"
+									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
 						{% endif %}
 					>Save
 					</button>

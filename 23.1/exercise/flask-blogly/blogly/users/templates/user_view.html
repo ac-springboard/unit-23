@@ -9,11 +9,11 @@
 								formaction="/blogly">Users
 				</button>
 				<button class="to_edit_bt user_details_form_bt" type="submit"
-								formaction="/blogly/users/{{ user.id }}/edit">Edit
+								formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit">Edit
 				</button>
 				<button class="delete_bt user_details_form_bt" type="submit"
 								formmethod="POST"
-								formaction="/blogly/users/{{ user.id }}/delete">
+								formaction="{{ g.USERS.PATH }}/{{ user.id }}/delete">
 					Delete
 				</button>
 			</form>
@@ -21,10 +21,10 @@
 			<p id="post_list">
 				{% for post in posts %}
 					<p class="list_item"> ✅ <a
-						href="/blogly/posts/{{ post.id }}">{{ post.title }}</a>
+						href="{{ g.POSTS.PATH }}/{{ post.id }}">{{ post.title }}</a>
 					</p>
 				{% endfor %}
-			<a href="/blogly/users/{{ user.id }}/posts/new"
+			<a href="{{ g.USERS.PATH }}/{{ user.id }}/posts/new"
 				 class="to_add_bt">Add Post</a>
 		</div>
 	</div>

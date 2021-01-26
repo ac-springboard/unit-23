@@ -11,7 +11,7 @@
 			<input name="image_url" value="{{ user.image_url or '' }}"/>
 			<button class="cancel_bt user_form_bt" type=submit"
 				{% if user_id %}
-							formaction="/blogly/users/{{ user.id }}"
+							formaction="{{ g.USERS.PATH }}/{{ user.id }}"
 				{% else %}
 							formaction="/blogly"
 				{% endif %}
@@ -20,9 +20,9 @@
 			<button class="save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"
 				{% if crud == 'update' %}
-							formaction="/blogly/users/{{ user.id }}/edit/save"
+							formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit/save"
 				{% elif crud == 'create' %}
-							formaction="/blogly/users/new"
+							formaction="{{ g.USERS.PATH }}/new"
 				{% endif %}
 			>Save
 			</button>

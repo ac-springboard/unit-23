@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block page_content %}
-	<link href="{{ g.URL_ROOT }}/blogly/tags/static/css/tag_list.css" rel="stylesheet" />
+	<link href="{{ g.URL_ROOT }}{{ g.TAGS.PATH }}/static/css/tag_list.css" rel="stylesheet" />
 	<div class="tag_list">
 		{% for tag in tags %}
 			<p class="list_item">✅ <a
-				href="/blogly/tags/{{ tag.id }}">{{ tag.name }}</a>
+				href="{{ g.TAGS.PATH }}/{{ tag.id }}">{{ tag.name }}</a>
 			</p>
 		{% endfor %}
 	</div>
-	<a href="/blogly/tags/new" class="to_add_bt">Add Tag</a>
+	<a href="{{ g.TAGS.PATH }}/new" class="to_add_bt">Add Tag</a>
 {% endblock %}

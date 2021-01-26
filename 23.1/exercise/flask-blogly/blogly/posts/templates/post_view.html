@@ -10,21 +10,21 @@
 					<span class="tags_label">Tags:</span>
 					{% for tag in post.rel_tags %}
 						<a class="tag_h_list_item"
-							 href="/blogly/tags/{{ tag.id }}">{{ tag.name }}</a>
+							 href="{{ g.TAGS.PATH }}/{{ tag.id }}">{{ tag.name }}</a>
 					{% endfor %}
 				</div>
 				<button class="to_list_bt post_details_form_bt" type="submit"
-								formaction="/blogly/users/{{ post.user_id }}">Posts
+								formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">Posts
 				</button>
 				<button class="to_edit_bt post_details_form_bt" type="submit"
-								formaction="/blogly/posts/{{ post.id }}/edit">Edit
+								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit">Edit
 				</button>
 				<button class="delete_bt post_details_form_bt" type="submit"
 								formmethod="POST"
-								formaction="/blogly/posts/{{ post.id }}/delete">
+								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/delete">
 					Delete
 				</button>
-				<a href="/blogly/users/{{ post.user_id }}/posts/new"
+				<a href="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
 					 class="to_add_bt">New Post</a>
 
 			</form>

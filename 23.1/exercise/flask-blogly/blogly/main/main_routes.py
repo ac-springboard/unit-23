@@ -1,5 +1,5 @@
 from flask import Blueprint, \
-    render_template
+    render_template, g
 
 from blogly.users.user_model import User
 

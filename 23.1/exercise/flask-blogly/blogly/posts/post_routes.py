@@ -1,5 +1,5 @@
 # from app import app, db
-from flask import render_template, Blueprint, request, redirect
+from flask import render_template, Blueprint, request, redirect, g
 
 from blogly.posts.post_model import Post
 from blogly.tags.tag_model import Tag
@@ -47,7 +47,7 @@ def post_add(user_id):
     tag_keys = request.form.getlist("tag_keys")
     tag_post_list = [TagPost({'post_id': post_id, 'tag_id': tk}) for tk in tag_keys]
     TagPost.add_all(tag_post_list)
-    return redirect(f'/blogly/users/{dict_form["user_id"]}')
+    return redirect(f'{g.USERS.PATH}/{dict_form["user_id"]}')
 
 
 #
@@ -97,7 +97,7 @@ def edit_save(post_id):
     dict_form['id'] = post_id
     post = Post.get(Post, post_id)
     post.update(dict_form)
-    return redirect(f'/blogly/users/{post.user_id}')
+    return redirect(f'{g.USERS.PATH}/{post.user_id}')
 
 
 #
@@ -110,7 +110,7 @@ def post_details_form_delete(post_id):
     """
     post = Post.get(Post, post_id)
     post.delete()
-    return redirect(f'/blogly/users/{post.user_id}')
+    return redirect(f'{g.USERS.PATH}/{post.user_id}')
 
 # @post_routes.route('/posts/new', methods=['GET'])
 # def new():

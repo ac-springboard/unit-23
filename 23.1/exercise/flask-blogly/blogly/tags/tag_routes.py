@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, redirect, request
+from flask import render_template, Blueprint, redirect, request, g
 
 from blogly.tags.tag_model import Tag
 
@@ -47,7 +47,7 @@ def new():
     """
     dict_form = dict(request.form)
     tag_id = Tag.add(Tag, dict_form)
-    return redirect(f'/blogly/tags/{tag_id}')
+    return redirect(f'{g.TAGS.PATH}/{tag_id}')
 
 
 @tag_routes.route('/tags/<int:tag_id>')
@@ -96,7 +96,7 @@ def save(tag_id):
     dict_form['id'] = tag_id
     tag = Tag.get(Tag, tag_id)
     tag.update(dict_form)
-    return redirect(f'/blogly/tags/{tag_id}')
+    return redirect(f'{g.TAGS.PATH}/{tag_id}')
 
 
 @tag_routes.route('/tags/<int:tag_id>/delete', methods=['POST'])

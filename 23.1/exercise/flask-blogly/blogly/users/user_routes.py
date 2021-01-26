@@ -1,5 +1,5 @@
 # from app import app, db
-from flask import render_template, Blueprint, redirect, request
+from flask import render_template, Blueprint, redirect, request, g
 
 from blogly.users.user_model import User
 
@@ -41,7 +41,7 @@ def new():
     """
     dict_form = dict(request.form)
     user_id = User.add(User, dict_form)
-    return redirect(f'/blogly/users/{user_id}')
+    return redirect(f'{g.USERS.PATH}/{user_id}')
 
 
 @user_routes.route('/users/<int:user_id>')
@@ -90,7 +90,7 @@ def save(user_id):
     dict_form['id'] = user_id
     user = User.get(User, user_id)
     user.update(dict_form)
-    return redirect(f'/blogly/users/{user_id}')
+    return redirect(f'{g.USERS.PATH}/{user_id}')
 
 
 @user_routes.route('/users/<int:user_id>/delete', methods=['POST'])

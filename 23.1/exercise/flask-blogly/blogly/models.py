@@ -38,7 +38,6 @@ class Models:
         db.session.add_all(cls)
         db.session.commit()
         # db.session.refresh(cls)
-        print(f"=====>>>>> LIST: {cls}")
 
     def delete(self):
         """
@@ -56,7 +55,7 @@ class Models:
         return self
 
     def __repr__(self):
-        return f"***** obj_dict -> {dict(self.__dict__)}"
+        return f"{dict(self.__dict__)}"
 
     def update_columns(self, dct):
         pass
