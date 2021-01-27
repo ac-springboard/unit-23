@@ -62,7 +62,7 @@ Flask run
 -----
 #### 5 - Navigation Flow
 
-https://raw.githubusercontent.com/ac-springboard/unit-23/master/23.3/exercise/docs/blogly-navigation-v2.jpg
+![Navigation Flow](https://raw.githubusercontent.com/ac-springboard/unit-23/master/23.3/exercise/docs/blogly-navigation-v2.jpg)
 
 -----
 #### Additional Notes
