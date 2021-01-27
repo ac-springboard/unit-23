@@ -30,7 +30,7 @@ def create_form_view(user_id):
     return render_template('post_form.html',
                            method='POST',
                            crud='create',
-                           page_title=f'Add Post for {user.full_name()}',
+                           page_title=f'{g.POSTS.ADD_PG} for {user.full_name()}',
                            post=post,
                            tags=tags)
 
@@ -66,7 +66,7 @@ def post_details_form_view(post_id):
     # print(post.__repr__) # This is cool
     post = Post.get(Post, post_id)
     return render_template('post_view.html',
-                           page_title='Post Details',
+                           page_title=g.POSTS.VIEW_PG,
                            post=post)
 
 
@@ -84,7 +84,7 @@ def edit_view(post_id):
     return render_template('post_form.html',
                            method='POST',
                            crud='update',
-                           page_title='Edit Post',
+                           page_title=g.POSTS.EDIT_PG,
                            post=post)
 
 
@@ -111,18 +111,3 @@ def post_details_form_delete(post_id):
     post = Post.get(Post, post_id)
     post.delete()
     return redirect(f'{g.USERS.PATH}/{post.user_id}')
-
-# @post_routes.route('/posts/new', methods=['GET'])
-# def new():
-#     """
-#     Renders the Post form. Sends some special variables to the front-end:
-#
-#     - method: the method to be sent by the form on click on the 'Save' button.
-#     - crud: the operation to configure the form.
-#     """
-#     post = Post({})
-#     return render_template('user_form.html',
-#                            method='POST',
-#                            crud='create',
-#                            page_title='Add Post',
-#                            post=post)

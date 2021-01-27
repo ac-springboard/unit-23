@@ -5,18 +5,20 @@
 			<form id="tag_details_form">
 				<h1>{{ tag.name }}</h1>
 				<button class="to_list_bt tag_details_form_bt" type="submit"
-								formaction="/blogly/tags">Tags
+								formaction="/blogly/tags">
+					{{ g.TAGS.LIST_PG }}
 				</button>
 				<button class="to_edit_bt tag_details_form_bt" type="submit"
-								formaction="{{ g.TAGS.PATH }}/{{ tag.id }}/edit">Edit
+								formaction="{{ g.TAGS.PATH }}/{{ tag.id }}/edit">
+					{{ g.TAGS.EDIT_BT }}
 				</button>
 				<button class="delete_bt tag_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="{{ g.TAGS.PATH }}/{{ tag.id }}/delete">
-					Delete
+					{{ g.TAGS.DEL_BT }}
 				</button>
 			</form>
-			<h1>Posts</h1>
+			<h1>{{ g.POSTS.LIST_LABEL }}</h1>
 			<p id="post_list">
 				{% for post in tag.rel_posts %}
 					<p class="list_item"> ✅ <a
@@ -24,7 +26,7 @@
 					</p>
 				{% endfor %}
 			<a href="{{ g.TAGS.PATH }}/new"
-				 class="to_add_bt">New Tag</a>
+				 class="to_add_bt">{{ g.TAGS.ADD_BT }}</a>
 		</div>
 	</div>
 {% endblock %}

@@ -1,7 +1,7 @@
 from flask import request, g
 
 from blogly import Init
-from blogly.global_params import Params, ROOT, USERS, POSTS, TAGS
+from blogly.global_params import Params, ROOT, USERS, POSTS, TAGS, MISC
 
 # from global import Params
 
@@ -16,6 +16,7 @@ def before_first_request():
 @app.before_request
 def before_request():
     app.app_context()
+    g.MISC = MISC
     g.ROOT = ROOT
     g.USERS = USERS
     g.POSTS = POSTS

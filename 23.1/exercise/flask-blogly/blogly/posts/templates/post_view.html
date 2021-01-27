@@ -7,25 +7,27 @@
 				<div class="post_content">{{ post.content }}</div>
 
 				<div class="tag_h_list">
-					<span class="tags_label">Tags:</span>
+					<span class="tags_label">{{ g.TAGS.LIST_LABEL }}:</span>
 					{% for tag in post.rel_tags %}
 						<a class="tag_h_list_item"
 							 href="{{ g.TAGS.PATH }}/{{ tag.id }}">{{ tag.name }}</a>
 					{% endfor %}
 				</div>
 				<button class="to_list_bt post_details_form_bt" type="submit"
-								formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">Posts
+								formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">
+					{{ g.POSTS.LIST_BT }}
 				</button>
 				<button class="to_edit_bt post_details_form_bt" type="submit"
-								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit">Edit
+								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit">
+					{{ g.POSTS.EDIT_BT }}
 				</button>
 				<button class="delete_bt post_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/delete">
-					Delete
+					{{ g.POSTS.DEL_BT }}
 				</button>
 				<a href="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
-					 class="to_add_bt">New Post</a>
+					 class="to_add_bt">{{ g.POSTS.ADD_BT }}</a>
 
 			</form>
 		</div>

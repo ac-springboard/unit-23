@@ -3,10 +3,10 @@
 	<div id="post_form_div">
 		<div id="post_form">
 			<form>
-				<label for="post_title">Title</label>
+				<label for="post_title">{{ g.POSTS.TITLE_LABEL }}</label>
 				<input id="post_title" name="title"
 							 value="{{ post.title or '' }}"/>
-				<label for="post_content">Content</label>
+				<label for="post_content">{{ g.POSTS.CONTENT_LABEL }}</label>
 				<textarea id="post_content"
 									name="content">{{ post.content or '' }}
 			</textarea>
@@ -25,7 +25,7 @@
 				</div>
 				<div class="form_bt_div">
 					<button class="cancel_bt post_form_bt" type="submit"
-									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">Cancel
+									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">{{ g.MISC.CANCEL_BT }}
 					</button>
 					<button class="save_bt post_form_bt" type="submit"
 									formmethod="{{ method }}"
@@ -34,7 +34,7 @@
 						{% elif crud == 'create' %}
 									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
 						{% endif %}
-					>Save
+					>{{ g.MISC.SAVE_BT }}
 					</button>
 				</div>
 			</form>

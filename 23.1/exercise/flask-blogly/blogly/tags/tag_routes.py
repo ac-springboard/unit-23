@@ -11,7 +11,7 @@ tag_routes = Blueprint('tag_routes', __name__,
 def listing():
     tags = Tag.all(Tag)
     return render_template('tag_list.html',
-                           page_title="Tags",
+                           page_title=g.TAGS.LIST_PG,
                            tags=tags)
 
 
@@ -31,7 +31,7 @@ def add_form():
     return render_template('tag_form.html',
                            method='POST',
                            crud='create',
-                           page_title='Add Tag Form',
+                           page_title=g.TAGS.ADD_PG,
                            tag=tag)
 
 
@@ -63,7 +63,7 @@ def details(tag_id):
     """
     tag = Tag.get(Tag, tag_id)
     return render_template('tag_view.html',
-                           page_title='Tag Details',
+                           page_title=g.TAGS.VIEW_PG,
                            tag=tag,
                            posts=[])
 

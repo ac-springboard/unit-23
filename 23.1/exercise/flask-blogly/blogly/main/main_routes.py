@@ -19,5 +19,5 @@ def main_home():
 
     users = User.all(User)
     return render_template('user_list.html',
-                           page_title='Users',
+                           page_title=g.USERS.LIST_PG,
                            users=users)

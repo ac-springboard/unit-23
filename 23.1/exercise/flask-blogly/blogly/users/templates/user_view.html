@@ -6,15 +6,15 @@
 			<form id="user_details_form">
 				<h1>{{ user.full_name() }}</h1>
 				<button class="to_list_bt user_details_form_bt" type="submit"
-								formaction="/blogly">Users
+								formaction="/blogly">{{ g.USERS.LIST_BT }}
 				</button>
 				<button class="to_edit_bt user_details_form_bt" type="submit"
-								formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit">Edit
+								formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit">{{ g.USERS.EDIT_BT }}
 				</button>
 				<button class="delete_bt user_details_form_bt" type="submit"
 								formmethod="POST"
 								formaction="{{ g.USERS.PATH }}/{{ user.id }}/delete">
-					Delete
+					{{ g.USERS.DEL_BT }}
 				</button>
 			</form>
 			<h1>Posts</h1>
@@ -25,7 +25,7 @@
 					</p>
 				{% endfor %}
 			<a href="{{ g.USERS.PATH }}/{{ user.id }}/posts/new"
-				 class="to_add_bt">Add Post</a>
+				 class="to_add_bt">{{ g.POSTS.ADD_BT }}</a>
 		</div>
 	</div>
 {% endblock %}

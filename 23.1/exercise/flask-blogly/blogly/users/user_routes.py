@@ -25,7 +25,7 @@ def add_form():
     return render_template('user_form.html',
                            method='POST',
                            crud='create',
-                           page_title='Add User Form',
+                           page_title=g.USERS.ADD_PG,
                            user=user)
 
 
@@ -57,7 +57,7 @@ def details(user_id):
     """
     user = User.get(User, user_id)
     return render_template('user_view.html',
-                           page_title='User Details',
+                           page_title=g.USERS.VIEW_PG,
                            user=user,
                            posts=user.posts)
 
@@ -77,7 +77,7 @@ def edit_form(user_id):
     return render_template('user_form.html',
                            method='POST',
                            crud='update',
-                           page_title='Edit User',
+                           page_title=g.USERS.EDIT_PG,
                            user=user)
 
 

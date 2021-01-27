@@ -2,10 +2,11 @@
 {% block page_content %}
 	<div id="tag_form_div">
 		<form id="tag_form">
-			<label for="tag_name">Tag Name</label>
+			<label for="tag_name">{{ TAGS.NAME_LABEL }}</label>
 			<input name="name" id="tag_name" value="{{ tag.name or '' }}"/>
 			<button class="cancel_bt tag_form_bt" type="submit"
-							formaction="/blogly/tags">Cancel
+							formaction="/blogly/tags">
+				{{ g.MISC.CANCEL_BT }}
 			</button>
 			<button class="save_bt tag_form_bt" type="submit"
 							formmethod="{{ method }}"
@@ -14,7 +15,7 @@
 				{% elif crud == 'create' %}
 							formaction="{{ g.TAGS.PATH }}/new"
 				{% endif %}
-			>Save
+			>{{ g.MISC.SAVE_BT }}
 			</button>
 		</form>
 	</div>

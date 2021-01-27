@@ -3,11 +3,11 @@
 	<div id="user_form_div">
 		<img id="user_image" src="{{ user.image_url }}"/>
 		<form id="user_form">
-			<label for="first_name">First Name</label>
+			<label for="first_name">{{ g.USERS.FIRST_NAME_LABEL }}</label>
 			<input name="first_name" value="{{ user.first_name or '' }}"/>
-			<label for="last_name">Last Name</label>
+			<label for="last_name">{{ g.USERS.LAST_NAME_LABEL }}</label>
 			<input name="last_name" value="{{ user.last_name or '' }}"/>
-			<label for="image_url">Photo URL</label>
+			<label for="image_url">{{ g.USERS.IMAGE_URL_LABEL }}</label>
 			<input name="image_url" value="{{ user.image_url or '' }}"/>
 			<button class="cancel_bt user_form_bt" type=submit"
 				{% if user_id %}
@@ -15,7 +15,7 @@
 				{% else %}
 							formaction="/blogly"
 				{% endif %}
-			>Cancel
+			>{{ g.MISC.CANCEL_BT }}
 			</button>
 			<button class="save_bt user_form_bt" type=submit"
 							formmethod="{{ method }}"
@@ -24,7 +24,7 @@
 				{% elif crud == 'create' %}
 							formaction="{{ g.USERS.PATH }}/new"
 				{% endif %}
-			>Save
+			>{{ g.MISC.SAVE_BT }}
 			</button>
 		</form>
 	</div>
