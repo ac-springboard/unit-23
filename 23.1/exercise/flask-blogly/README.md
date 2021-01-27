@@ -75,8 +75,7 @@ Flask run
 
 - ***Multiple Inheritance***.
 - ***Generics***.
-- Splitting the models in different files.
-- Moving the routes to a file separate from the app (I had to use the `Blueprint` class for that).
+- **Blueprint** architecture.
 - Using multiples schemas in the same or separated database.
 - Parametrizing the database and schema names.
 - `@staticmethod` annotation.
