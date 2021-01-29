@@ -16,14 +16,14 @@ class Post(Models, db.Model):
     - Initializes the posts table on postgres.
     - Represents a post from the posts table.
     """
+    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
 
     __tablename__ = 'posts'
 
     """
     Selects the schema to be used in the connected database.
     """
-    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
-    __table_args__ = {'schema': schema_name }
+    __table_args__ = {'schema': schema_name}
 
     # obj_dict = {}
 
@@ -71,12 +71,5 @@ class Post(Models, db.Model):
         self.user_id = dct.get('user_id') or self.user_id
         self.created_at = dct.get('created_at') or self.created_at
 
-        # print('test')
-
     def get_tag_ids(self):
         return [tag_post.tag_id for tag_post in self.rel_tag_post]
-
-    # def update_tags(self, tag_ids):
-    #     self.rel_tag_post.remove_from_post(self.id)
-    #     tags = [{'tag_id': tag_id, 'post_id': self.id} for tag_id in tag_ids]
-    #     self.rel_tag_post.add_all(tags)

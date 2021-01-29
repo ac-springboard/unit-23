@@ -1,5 +1,4 @@
-from flask import Blueprint, \
-    redirect
+from flask import Blueprint, redirect
 
 root_routes = Blueprint('root_routes',
                         __name__,

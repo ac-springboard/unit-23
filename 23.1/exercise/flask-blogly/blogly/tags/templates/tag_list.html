@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block page_content %}
-	<link href="{{ g.URL_ROOT }}{{ g.TAGS.PATH }}/static/css/tag_list.css" rel="stylesheet" />
+	<link
+		href="{{ g.URL_ROOT }}{{ g.TAGS.PATH }}/static/css/tag_list.css"
+		rel="stylesheet"/>
 	<div class="tag_list">
 		{% for tag in tags %}
 			<p class="list_item">✅ <a
@@ -8,5 +10,6 @@
 			</p>
 		{% endfor %}
 	</div>
-	<a href="{{ g.TAGS.PATH }}/new" class="to_add_bt">{{ g.TAGS.ADD_BT }}</a>
+	<a href="{{ g.TAGS.PATH }}/new"
+		 class="to_add_bt">{{ g.TAGS.ADD_BT }}</a>
 {% endblock %}

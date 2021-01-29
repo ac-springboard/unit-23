@@ -3,7 +3,6 @@
 	}
 
 #post_details_form_div a {
-	/*display : block;*/
 	}
 
 #post_details_form_div h1 {
@@ -20,10 +19,3 @@ img#post_details_image {
 	display        : inline-block;
 	vertical-align : bottom;
 	}
-
-/*.post_list {*/
-/*	color           : cyan !important;*/
-/*	display         : block;*/
-/*	margin-bottom   : 1em;*/
-/*	text-decoration : none;*/
-/*	}*/

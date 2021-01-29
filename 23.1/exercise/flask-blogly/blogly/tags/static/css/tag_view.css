@@ -3,7 +3,6 @@
 	}
 
 #tag_details_form_div a {
-	/*display : block;*/
 	}
 
 #tag_details_form_div h1 {
@@ -21,6 +20,6 @@ img#tag_details_image {
 	vertical-align : bottom;
 	}
 
-.tag_h_list_view{
-		margin-top: 1em;
+.tag_h_list_view {
+	margin-top : 1em;
 	}
