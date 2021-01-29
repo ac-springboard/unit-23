@@ -19,7 +19,8 @@ class Tag(Models, db.Model):
     """
     Selects the schema to be used in the connected database.
     """
-    __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
+    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
+    __table_args__ = {'schema': schema_name}
 
     def __init__(self, obj_dict):
         self.obj_dict = obj_dict
@@ -36,7 +37,7 @@ class Tag(Models, db.Model):
                      nullable=False)
 
     rel_posts = db.relationship('Post',
-                                secondary='flask_blogly_test.tag_post',
+                                secondary=f'{schema_name}.tag_post',
                                 back_populates='rel_tags',
                                 lazy='joined')
 

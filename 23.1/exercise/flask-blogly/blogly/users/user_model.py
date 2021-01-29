@@ -19,7 +19,8 @@ class User(Models, db.Model):
     """
     Selects the schema to be used in the connected database.
     """
-    __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
+    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
+    __table_args__ = {'schema': schema_name}
 
     def __init__(self, obj_dict):
         # self.obj_dict = obj_dict

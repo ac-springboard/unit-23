@@ -19,7 +19,8 @@ class TagPost(Models, db.Model):
     """
     Selects the schema to be used in the connected database.
     """
-    __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
+    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
+    __table_args__ = {'schema': schema_name}
 
     def __init__(self, obj_dict):
         # self.obj_dict = obj_dict
@@ -29,8 +30,8 @@ class TagPost(Models, db.Model):
 
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True)
 
-    post_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.posts.id'))
-    tag_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.tags.id', ondelete='CASCADE'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey(f'{schema_name}.posts.id'))
+    tag_id = db.Column(db.Integer, db.ForeignKey(f'{schema_name}.tags.id', ondelete='CASCADE'), nullable=False)
 
     def update_columns(self, dct):
         """
@@ -38,3 +39,8 @@ class TagPost(Models, db.Model):
         """
         self.tag_id = dct.get('tag_id', None)
         self.post_id = dct.get('post_id', None)
+
+    @staticmethod
+    def remove_from_post(post_id):
+        db.session.query(TagPost).filter(TagPost.post_id == post_id).delete()
+        db.session.commit()

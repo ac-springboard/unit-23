@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
-
+	<link href="{{ g.USERS.STATIC }}/css/user_list.css"
+				rel="stylesheet"/>
 	<div class="user_list">
 		{% for user in users %}
 			<p class="list_item">✅ <a

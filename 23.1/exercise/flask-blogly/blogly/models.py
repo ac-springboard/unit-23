@@ -57,5 +57,5 @@ class Models:
     def __repr__(self):
         return f"{dict(self.__dict__)}"
 
-    def update_columns(self, dct):
-        pass
+    # def update_columns(self, dct):
+    #     pass

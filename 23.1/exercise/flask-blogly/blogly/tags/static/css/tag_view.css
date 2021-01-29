@@ -20,3 +20,7 @@ img#tag_details_image {
 	display        : inline-block;
 	vertical-align : bottom;
 	}
+
+.tag_h_list_view{
+		margin-top: 1em;
+	}

@@ -32,7 +32,7 @@ def create_form_view(user_id):
                            crud='create',
                            page_title=f'{g.POSTS.ADD_PG} for {user.full_name()}',
                            post=post,
-                           tags=tags)
+                           all_tags=tags)
 
 
 @post_routes.route('/users/<int:user_id>/posts/new', methods=['POST'])
@@ -81,11 +81,15 @@ def edit_view(post_id):
     - crud: the operation to configure the form.
     """
     post = Post.get(Post, post_id)
+    all_tags = Tag.all(Tag)
+    post_tag_ids = post.get_tag_ids()
     return render_template('post_form.html',
                            method='POST',
                            crud='update',
                            page_title=g.POSTS.EDIT_PG,
-                           post=post)
+                           post=post,
+                           all_tags=all_tags,
+                           post_tag_ids=post_tag_ids)
 
 
 @post_routes.route('/posts/<int:post_id>/edit', methods=['POST'])
@@ -97,6 +101,12 @@ def edit_save(post_id):
     dict_form['id'] = post_id
     post = Post.get(Post, post_id)
     post.update(dict_form)
+
+    tag_keys = request.form.getlist("tag_keys")
+    # tag_post_list = [TagPost({'post_id': post_id, 'tag_id': tk}) for tk in tag_keys]
+    TagPost.remove_from_post(post_id)
+    post_tags = [TagPost({'tag_id': tag_id, 'post_id': post_id}) for tag_id in tag_keys]
+    Tag.add_all(post_tags)
     return redirect(f'{g.USERS.PATH}/{post.user_id}')
 
 

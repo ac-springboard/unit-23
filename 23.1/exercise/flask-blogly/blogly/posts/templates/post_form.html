@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
+	<link href="{{ g.POSTS.STATIC }}/css/post_form.css"
+				rel="stylesheet"/>
 	<div id="post_form_div">
 		<div id="post_form">
 			<form>
@@ -10,20 +12,28 @@
 				<textarea id="post_content"
 									name="content">{{ post.content or '' }}
 			</textarea>
-				<h2>Tags</h2>
-				<div class="tag_h_list_check">
-					{% for tag in tags %}
-						<div class="tag_h_list_check_item">
-							<input class="tag_h_list_item_check_input"
-										 type="checkbox"
+
+				<h2>{{ g.TAGS.LIST_LABEL }}</h2>
+
+				<div class="tag_v_list_check">
+					{% for tag in all_tags %}
+						<div class="div_container">
+							<input type="checkbox"
+										 class="the_input"
+								{% if tag.id in post_tag_ids %}
+										checked="checked"
+								{% endif %}
 										 id="tag_{{ tag.id }}"
 										 name="tag_keys" value="{{ tag.id }}"/>
 							<label for="tag_{{ tag.id }}"
-										 class="tag_h_list_item_check_label">{{ tag.name }}</label>
+										 class="the_label">{{ tag.name }}
+							</label>
+							{#<span class="checkmark"></span>#}
 						</div>
 					{% endfor %}
 				</div>
-				<div class="form_bt_div">
+
+				<div class="form_buttons">
 					<button class="cancel_bt post_form_bt" type="submit"
 									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">{{ g.MISC.CANCEL_BT }}
 					</button>

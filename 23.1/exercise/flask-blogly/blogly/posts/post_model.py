@@ -5,6 +5,7 @@ from flask import Blueprint
 
 from blogly import db
 from blogly.models import Models
+
 # from blogly.users.user_model import User
 
 post_model = Blueprint('post_model', __name__, template_folder='templates')
@@ -21,7 +22,8 @@ class Post(Models, db.Model):
     """
     Selects the schema to be used in the connected database.
     """
-    __table_args__ = {'schema': os.environ.get('BLOGLY_SCHEMA_NAME')}
+    schema_name = os.environ.get('BLOGLY_SCHEMA_NAME')
+    __table_args__ = {'schema': schema_name }
 
     # obj_dict = {}
 
@@ -47,14 +49,14 @@ class Post(Models, db.Model):
                            default=datetime.now(),
                            nullable=False)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('flask_blogly_test.users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey(f'{schema_name}.users.id'))
 
     # RELATIONSHIPS
 
     user = db.relationship('User')
-    # rel_tag_post = db.relationship('TagPost')
+    rel_tag_post = db.relationship('TagPost')
     rel_tags = db.relationship('Tag',
-                               secondary='flask_blogly_test.tag_post',
+                               secondary=f'{schema_name}.tag_post',
                                back_populates='rel_posts',
                                cascade='all',
                                lazy='dynamic')
@@ -70,3 +72,11 @@ class Post(Models, db.Model):
         self.created_at = dct.get('created_at') or self.created_at
 
         # print('test')
+
+    def get_tag_ids(self):
+        return [tag_post.tag_id for tag_post in self.rel_tag_post]
+
+    # def update_tags(self, tag_ids):
+    #     self.rel_tag_post.remove_from_post(self.id)
+    #     tags = [{'tag_id': tag_id, 'post_id': self.id} for tag_id in tag_ids]
+    #     self.rel_tag_post.add_all(tags)

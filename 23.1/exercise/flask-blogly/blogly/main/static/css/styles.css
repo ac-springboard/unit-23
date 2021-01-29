@@ -1,7 +1,7 @@
 @import url("buttons.css");
 /*@import url("/blogly/{{ g.USERS.PATH }}/static/css/user_edit.css");*/
 /*@import url("/blogly/{{ g.USERS.PATH }}/static/css/user_form.css");*/
-@import url("/blogly/users/static/css/user_list.css");
+/*@import url("/blogly/users/static/css/user_list.css");*/
 /*@import url("/blogly/users/static/css/user_view.css");*/
 /*@import url("/blogly/posts/static/css/post_edit.css");*/
 /*@import url("/blogly/posts/static/css/post_form.css");*/
@@ -40,6 +40,10 @@ img {
 label, input {
 	display : block;
 	}
+
+/*[type="checkbox"]:checked{*/
+/*	background-color: red !important;*/
+/*	}*/
 
 #content_div {
 	}

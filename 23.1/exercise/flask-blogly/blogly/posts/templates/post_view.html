@@ -1,33 +1,40 @@
 {% extends "base.html" %}
 {% block page_content %}
+	<link href="{{ g.POSTS.STATIC }}/css/post_view.css" rel="stylesheet"/>
+	<link href="{{ g.TAGS.STATIC }}/css/tag_view.css" rel="stylesheet"/>
 	<div id="post_details_form_div">
 		<div id="form_with_title">
 			<form id="post_details_form">
 				<h1>{{ post.title }}</h1>
 				<div class="post_content">{{ post.content }}</div>
 
-				<div class="tag_h_list">
+				<div class="tag_h_list_view">
 					<span class="tags_label">{{ g.TAGS.LIST_LABEL }}:</span>
 					{% for tag in post.rel_tags %}
-						<a class="tag_h_list_item"
+						<a class="tag_h_list_view_item"
 							 href="{{ g.TAGS.PATH }}/{{ tag.id }}">{{ tag.name }}</a>
 					{% endfor %}
 				</div>
-				<button class="to_list_bt post_details_form_bt" type="submit"
-								formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">
-					{{ g.POSTS.LIST_BT }}
-				</button>
-				<button class="to_edit_bt post_details_form_bt" type="submit"
-								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit">
-					{{ g.POSTS.EDIT_BT }}
-				</button>
-				<button class="delete_bt post_details_form_bt" type="submit"
-								formmethod="POST"
-								formaction="{{ g.POSTS.PATH }}/{{ post.id }}/delete">
-					{{ g.POSTS.DEL_BT }}
-				</button>
-				<a href="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
-					 class="to_add_bt">{{ g.POSTS.ADD_BT }}</a>
+
+				<div class="form_buttons">
+					<button class="to_list_bt post_details_form_bt"
+									type="submit"
+									formaction="{{ g.USERS.PATH }}/{{ post.user_id }}">
+						{{ g.POSTS.LIST_BT }}
+					</button>
+					<button class="to_edit_bt post_details_form_bt"
+									type="submit"
+									formaction="{{ g.POSTS.PATH }}/{{ post.id }}/edit">
+						{{ g.POSTS.EDIT_BT }}
+					</button>
+					<button class="delete_bt post_details_form_bt" type="submit"
+									formmethod="POST"
+									formaction="{{ g.POSTS.PATH }}/{{ post.id }}/delete">
+						{{ g.POSTS.DEL_BT }}
+					</button>
+					<a href="{{ g.USERS.PATH }}/{{ post.user_id }}/posts/new"
+						 class="to_add_bt">{{ g.POSTS.ADD_BT }}</a>
+				</div>
 
 			</form>
 		</div>

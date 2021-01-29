@@ -2,7 +2,7 @@ button {
 	border        : none;
 	border-radius : 0.5em;
 	font-size     : 1em;
-	padding       : 1em;
+	padding       : 0.5em;
 	}
 
 button:hover {
@@ -18,13 +18,18 @@ button:hover {
 
 	}
 
+.form_buttons{
+		margin-top: 1em;
+	}
+
 .to_add_bt {
 	border          : none;
 	border-radius   : 0.5em;
 	color           : black !important;
 	display         : inline-block;
 	font-size       : 1em;
-	padding         : 1.0em;
+	padding         : 0.6em;
+	/*width: max-content;*/
 	text-decoration : none !important;
 	}
 

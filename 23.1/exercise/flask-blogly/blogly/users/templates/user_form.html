@@ -9,23 +9,29 @@
 			<input name="last_name" value="{{ user.last_name or '' }}"/>
 			<label for="image_url">{{ g.USERS.IMAGE_URL_LABEL }}</label>
 			<input name="image_url" value="{{ user.image_url or '' }}"/>
-			<button class="cancel_bt user_form_bt" type=submit"
-				{% if user_id %}
-							formaction="{{ g.USERS.PATH }}/{{ user.id }}"
-				{% else %}
-							formaction="/blogly"
-				{% endif %}
-			>{{ g.MISC.CANCEL_BT }}
-			</button>
-			<button class="save_bt user_form_bt" type=submit"
-							formmethod="{{ method }}"
-				{% if crud == 'update' %}
-							formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit/save"
-				{% elif crud == 'create' %}
-							formaction="{{ g.USERS.PATH }}/new"
-				{% endif %}
-			>{{ g.MISC.SAVE_BT }}
-			</button>
+			<div class="form_buttons">
+				<button class="cancel_bt user_form_bt" type=submit"
+					{% if user_id %}
+								formaction="{{ g.USERS.PATH }}/{{ user.id }}"
+					{% else %}
+						{% if crud == 'create' %}
+								formaction="/blogly/list"
+						{% else %}
+								formaction="/blogly/users/{{ user.id }}"
+						{% endif %}
+					{% endif %}
+				>{{ g.MISC.CANCEL_BT }}
+				</button>
+				<button class="save_bt user_form_bt" type=submit"
+								formmethod="{{ method }}"
+					{% if crud == 'update' %}
+								formaction="{{ g.USERS.PATH }}/{{ user.id }}/edit/save"
+					{% elif crud == 'create' %}
+								formaction="{{ g.USERS.PATH }}/new"
+					{% endif %}
+				>{{ g.MISC.SAVE_BT }}
+				</button>
+			</div>
 		</form>
 	</div>
 
