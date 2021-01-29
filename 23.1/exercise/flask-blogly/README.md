@@ -59,6 +59,9 @@ Remember that this is a ***Flask*** application. You ***MUST*** use the `Flask` 
 ```
 Flask run
 ``` 
+
+The file [run.sh](https://github.com/ac-springboard/unit-23/blob/master/23.1/exercise/flask-blogly/run.sh) is a convenient way to configure and run the application.
+
 -----
 #### 5 - Navigation Flow
 
@@ -80,5 +83,7 @@ Flask run
 - Parametrizing the database and schema names.
 - `@staticmethod` annotation.
 - Others.
+
+4 - The decision about using this architecture since the beginning was made due the fact that I intend to develop a professional blog for myself as my capstone project. I'm strongly tempted to use the microservices architecture for that so I can continue practicing ohter development languages and some dev-ops skills.
 
 
